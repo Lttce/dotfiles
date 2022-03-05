@@ -1,0 +1,38 @@
+# ===========================================================================
+#
+#   dein.vim dein.toml
+#
+# ===========================================================================
+
+# =================================================
+[[plugins]]
+repo = 'Shougo/dein.vim'
+hook_add = '''
+    let g:dein#auto_recache = !has('win32')
+'''
+
+# =================================================
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+
+# =================================================
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    source ~/dotfiles/nvim/plugins/lightline.vim
+'''
+
+# =================================================
+[[plugins]]
+repo = 'nathom/filetype.nvim'
+hook_add = '''
+    let g:did_load_filetypes = 1
+'''
+
+# =================================================
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+    " source ~/.config/nvim/plugins/fugitive.vim
+'''
+
