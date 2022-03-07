@@ -47,8 +47,7 @@ filetype plugin indent on
 syntax enable
 set termguicolors
 autocmd ColorScheme * highlight SignColumn None
-
-colorscheme onedark
+colorscheme edge
 
 " ----------------------------------------
 "  Edit
@@ -61,12 +60,16 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+set smartindent
+
 set list
 
 set virtualedit=onemore,block
 
 set splitbelow
 set splitright
+
+set scrolloff=999
 
 set hidden
 
@@ -78,14 +81,12 @@ vnoremap x "_x
 augroup CustomFileTypeIndent
     autocmd FileType make setlocal noexpandtab
     autocmd FileType go setlocal noexpandtab
+    autocmd FileType gitcommit setlocal spell
 augroup end
 
 augroup CustomCommand
     " Save last cursor position
-    autocmd BufRead * if line("'\"") > 0
-                        \ && line("'\"") <= line("$") |
-                        \ exe "normal g`\"" |
-                        \ endif
+    autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 augroup end
 
 " ----------------------------------------

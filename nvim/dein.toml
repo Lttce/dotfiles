@@ -1,6 +1,6 @@
 # ===========================================================================
 #
-#   dein.vim dein.toml
+#   dein.vim dein_lazy.toml
 #
 # ===========================================================================
 
@@ -13,13 +13,22 @@ hook_add = '''
 
 # =================================================
 [[plugins]]
-repo = 'joshdick/onedark.vim'
+repo = 'sainnhe/edge'
+hook_add = '''
+    let g:edge_better_performance = 1
+    let g:edge_transparent_background = 1
+    let g:edge_disable_italic_comment = 1
+'''
 
 # =================================================
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-    source ~/dotfiles/nvim/plugins/lightline.vim
+    set noshowmode
+    let g:lightline = {}
+    let g:lightline.colorscheme = 'edge'
+    let g:lightline.separator = { 'left': "\ue0b0", 'right': "\ue0b2" }
+    let g:lightline.subseparator = { 'left': "\ue0b1", 'right': "\ue0b3" }
 '''
 
 # =================================================
@@ -32,7 +41,4 @@ hook_add = '''
 # =================================================
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-hook_add = '''
-    " source ~/.config/nvim/plugins/fugitive.vim
-'''
 

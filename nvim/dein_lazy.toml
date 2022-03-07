@@ -1,3 +1,9 @@
+# ===========================================================================
+#
+#   dein.vim dein.toml
+#
+# ===========================================================================
+
 # =================================================
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
@@ -74,6 +80,7 @@ hook_source = '''
 repo = 'airblade/vim-gitgutter'
 on_event = 'BufRead'
 hook_source = '''
+    set updatetime=500
     let g:gitgutter_map_keys = 0
 '''
 
