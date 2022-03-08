@@ -20,7 +20,14 @@ hook_source = '''
 repo = 'jose-elias-alvarez/null-ls.nvim'
 on_event = 'BufRead'
 hook_source = '''
-    source ~/.config/nvim/plugins/null-ls.lua
+lua << EOF
+    local null_ls = require('null-ls')
+    local sources = {
+        null_ls.builtins.formatting.autopep8,
+    }
+
+    null_ls.setup({ sources = sources })
+EOF
 '''
 
 # =================================================
