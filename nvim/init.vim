@@ -38,15 +38,19 @@ set noswapfile
 set clipboard+=unnamedplus
 set mouse=a
 
+syntax enable
 filetype plugin indent on
 
 " ----------------------------------------
 " Color
 " ----------------------------------------
 
-syntax enable
+augroup CustomColorscheme
+    autocmd ColorScheme * highlight SignColumn None
+augroup end
+
 set termguicolors
-autocmd ColorScheme * highlight SignColumn None
+
 colorscheme edge
 
 " ----------------------------------------
@@ -80,7 +84,7 @@ inoremap <C-l> <RIGHT>
 nnoremap x "_x
 vnoremap x "_x
 
-augroup CustomFileTypeIndent
+augroup CustomFileType
     autocmd FileType make setlocal noexpandtab
     autocmd FileType go setlocal noexpandtab
     autocmd FileType gitcommit setlocal spell
