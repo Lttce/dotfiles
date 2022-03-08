@@ -22,8 +22,8 @@ if dein#check_install()
     call dein#install()
 endif
 
-" Disable the provider
-source ~/dotfiles/nvim/plugins/provider.vim
+" Disable the runtime plugins
+source ~/dotfiles/nvim/plugins/runtime.vim
 
 " If set, startup time will be faster
 source ~/dotfiles/nvim/plugins/clipboard.vim
@@ -74,6 +74,8 @@ set scrolloff=999
 set hidden
 
 inoremap jk <ESC>
+
+inoremap <C-l> <RIGHT>
 
 nnoremap x "_x
 vnoremap x "_x
