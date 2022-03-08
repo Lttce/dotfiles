@@ -93,6 +93,9 @@ augroup end
 augroup CustomCommand
     " Save last cursor position
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+    " highlight yank
+    autocmd TextYankPost * lua require'vim.highlight'.on_yank {higroup='MatchParen', timeout=400}
 augroup end
 
 " ----------------------------------------
@@ -105,6 +108,9 @@ augroup end
 
 " Exit inset mode when using the terminal
 tnoremap <ESC> <C-\><C-n>
+
+" Disable commands history
+noremap q: <NOP>
 
 " ----------------------------------------
 "  Search

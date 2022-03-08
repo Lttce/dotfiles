@@ -32,6 +32,8 @@ set shiftwidth=4
 
 set list
 
+set completeopt=menuone,noinsert
+
 inoremap jk <ESC> 
 
 " Command
