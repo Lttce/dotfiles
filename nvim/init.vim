@@ -10,23 +10,33 @@
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
-        call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
-        call dein#load_toml('~/dotfiles/nvim/dein_lazy.toml', { 'lazy': 1 })
-    call dein#end()
-    call dein#save_state()
+let b:loaded_dein_vim = v:false
+
+if isdirectory(expand('~').'/.cache/dein')
+    let b:loaded_dein_vim = v:true
+
+    if dein#load_state('~/.cache/dein')
+        call dein#begin('~/.cache/dein')
+            call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
+            call dein#load_toml('~/dotfiles/nvim/dein_lazy.toml', { 'lazy': 1 })
+        call dein#end()
+        call dein#save_state()
+    endif
+
+    if dein#check_install()
+        call dein#install()
+    endif
+else
+    echo '[Notice] dein.vim is not installed.'
 endif
 
-if dein#check_install()
-    call dein#install()
+if isdirectory(expand('~').'/nvim/plugin')
+    " Disable the runtime plugins
+    source ~/dotfiles/nvim/plugins/runtime.vim
+
+    " If set, startup time will be faster
+    source ~/dotfiles/nvim/plugins/clipboard.vim
 endif
-
-" Disable the runtime plugins
-source ~/dotfiles/nvim/plugins/runtime.vim
-
-" If set, startup time will be faster
-source ~/dotfiles/nvim/plugins/clipboard.vim
 
 " ----------------------------------------
 "  General
@@ -51,7 +61,12 @@ augroup end
 
 set termguicolors
 
-colorscheme edge
+
+if b:loaded_dein_vim
+    colorscheme edge
+else
+    colorscheme desert
+endif
 
 " ----------------------------------------
 "  Edit
@@ -80,6 +95,8 @@ set hidden
 inoremap jk <ESC>
 
 inoremap <C-l> <RIGHT>
+
+noremap Y <cmd>%y<CR>
 
 nnoremap x "_x
 vnoremap x "_x
