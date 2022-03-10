@@ -30,7 +30,7 @@ else
     echo '[Notice] dein.vim is not installed.'
 endif
 
-if isdirectory(expand('~').'/nvim/plugin')
+if isdirectory(expand('~').'/dotfiles/nvim/plugins')
     " Disable the runtime plugins
     source ~/dotfiles/nvim/plugins/runtime.vim
 
@@ -60,7 +60,6 @@ augroup CustomColorscheme
 augroup end
 
 set termguicolors
-
 
 if b:loaded_dein_vim
     colorscheme edge
@@ -96,6 +95,7 @@ inoremap jk <ESC>
 
 inoremap <C-l> <RIGHT>
 
+" Copy all chars from current buffer
 noremap Y <cmd>%y<CR>
 
 nnoremap x "_x
