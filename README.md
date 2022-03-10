@@ -24,3 +24,8 @@ vim
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ```
 
+tmux
+```sh
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+tmux source ~/.tmux.conf
+```
