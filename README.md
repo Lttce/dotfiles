@@ -23,12 +23,12 @@ vim
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ```
 
-<<<<<<< HEAD
 tmux
 ```sh
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 tmux source ~/.tmux.conf
-=======
+```
+
 ## Windows subsystem for Linux
 use clipboard in neovim
 ```sh
@@ -37,5 +37,4 @@ unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
 chmod +x /tmp/win32yank.exe
 sudo mv /tmp/win32yank.exe /usr/local/bin/
 # FROM: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
->>>>>>> Update
 ```
