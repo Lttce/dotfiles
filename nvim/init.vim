@@ -12,7 +12,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 let b:loaded_dein_vim = v:false
 
-if isdirectory(expand('~').'/.cache/dein')
+if isdirectory(expand('~/.cache/dein'))
     let b:loaded_dein_vim = v:true
 
     if dein#load_state('~/.cache/dein')
@@ -30,7 +30,7 @@ else
     echo '[Notice] dein.vim is not installed.'
 endif
 
-if isdirectory(expand('~').'/dotfiles/nvim/plugins')
+if isdirectory(expand('~/dotfiles/nvim/plugins'))
     " Disable the runtime plugins
     source ~/dotfiles/nvim/plugins/runtime.vim
 
