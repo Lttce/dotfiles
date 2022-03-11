@@ -1,0 +1,21 @@
+{
+    "main": {
+        "prefix": "main",
+        "body": [
+            "def main():",
+            "    pass$1",
+            "",
+            "",
+            "if __name__ == '__main__':",
+            "    main()"
+        ]
+    },
+    "input_split": {
+        "prefix": "inputsplit",
+        "body": "input().split()"
+    },
+    "input_map": {
+        "prefix": "inputmap",
+        "body": "map(int, input().split())"
+    }
+}
