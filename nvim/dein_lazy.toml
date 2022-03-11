@@ -94,6 +94,9 @@ hook_source = '''
     call lexima#add_rule({ 'char': '<', 'input': '<', 'input_after': '>', 'filetype': ['vim', 'toml'] })
     call lexima#add_rule({ 'char': '>', 'at': '\%#>', 'leave': 1, 'filetype': ['vim', 'toml'] })
     call lexima#add_rule({ 'char': '<BS>', 'at': '<\%#>', 'input': '<BS>', 'delete' : 1, 'filetype': ['vim', 'toml'] })
+
+    " Python f string
+    call lexima#add_rule({ 'char': "'", 'at': 'f\%#', 'input': "'", 'input_after': "'", 'filetype': 'python' })
 '''
 
 # =================================================
