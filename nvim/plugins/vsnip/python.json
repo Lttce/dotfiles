@@ -17,5 +17,9 @@
     "input_map": {
         "prefix": "inputmap",
         "body": "map(int, input().split())"
+    },
+    "int_input": {
+        "prefix": "intinput",
+        "body": "int(input())"
     }
 }
