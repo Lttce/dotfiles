@@ -125,9 +125,16 @@ augroup end
 
 " Exit inset mode when using the terminal
 tnoremap <ESC> <C-\><C-n>
+tnoremap jk <C-\><C-n>
 
 " Disable commands history
 noremap q: <NOP>
+
+" Open a termial with ':T'
+command T split | resize 10 | terminal
+
+" Close a terminal with input ':q'
+tnoremap :q <C-\><C-n>:q<CR>
 
 " ----------------------------------------
 "  Search
