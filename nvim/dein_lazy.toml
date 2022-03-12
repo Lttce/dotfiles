@@ -70,7 +70,21 @@ repo = 'nvim-telescope/telescope.nvim'
 on_event = 'BufEnter'
 depends = ['plenary.nvim', 'nvim-web-devicons']
 hook_source = '''
-    source ~/.config/nvim/plugins/telescope.lua
+nnoremap <silent> <C-p> <cmd>Telescope find_files<CR>
+
+lua << EOF
+    require('telescope').setup({
+        defaults = {
+            mappings = {
+                i = {
+                    ['<ESC>'] = require('telescope.actions').close,
+                    ['<C-j>'] = require('telescope.actions').move_selection_next,
+                    ['<C-k>'] = require('telescope.actions').move_selection_previous,
+                }
+            }
+        }
+    })
+EOF
 '''
 
 [[plugins]]
