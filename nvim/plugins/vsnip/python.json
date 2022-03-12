@@ -15,11 +15,15 @@
         "body": "input().split()"
     },
     "input_map": {
-        "prefix": "inputmap",
+        "prefix": "mapinput",
         "body": "map(int, input().split())"
     },
     "int_input": {
         "prefix": "intinput",
         "body": "int(input())"
+    },
+    "list_map_input": {
+        "prefix": "listmapinput",
+        "body": "list(map(int, input().split()))"
     }
 }
