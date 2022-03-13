@@ -91,6 +91,9 @@ set scrolloff=999
 
 set hidden
 
+" wait time for key input
+set timeoutlen=300
+
 inoremap jk <ESC>
 
 inoremap <C-l> <RIGHT>
