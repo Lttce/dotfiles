@@ -10,12 +10,8 @@
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-let b:loaded_dein_vim = v:false
-
 if isdirectory(expand('~/.cache/dein'))
-    let b:loaded_dein_vim = v:true
-
-    if dein#load_state('~/.cache/dein')
+    if dein#min#load_state('~/.cache/dein')
         call dein#begin('~/.cache/dein')
             call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
             call dein#load_toml('~/dotfiles/nvim/dein_lazy.toml', { 'lazy': 1 })
@@ -61,11 +57,7 @@ augroup end
 
 set termguicolors
 
-if b:loaded_dein_vim
-    colorscheme edge
-else
-    colorscheme desert
-endif
+colorscheme edge
 
 " ----------------------------------------
 "  Edit

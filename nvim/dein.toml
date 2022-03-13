@@ -37,7 +37,8 @@ hook_add = '''
     let g:lightline.component_function = { 'gitbranch': 'Branch' }
 
     function Branch() abort
-        return "\ue725 ".FugitiveHead()
+        let l:current_branch = FugitiveHead()
+        return !empty(current_branch) ? "\ue725 ".current_branch : ''
     endfunction
 '''
 
@@ -49,6 +50,7 @@ hook_add = '''
 '''
 
 # =================================================
+# Mark changes in files managed by Git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
