@@ -115,6 +115,7 @@ hook_source = '''
 '''
 
 # =================================================
+# Mark changes in files managed by Git
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 on_event = 'BufRead'

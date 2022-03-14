@@ -50,7 +50,6 @@ hook_add = '''
 '''
 
 # =================================================
-# Mark changes in files managed by Git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
