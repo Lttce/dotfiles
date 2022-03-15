@@ -25,6 +25,7 @@ hook_add = '''
 # =================================================
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+depends = ['vim-fugitive']
 hook_add = '''
     set noshowmode
     let g:lightline = {}
@@ -48,8 +49,4 @@ repo = 'nathom/filetype.nvim'
 hook_add = '''
     let g:did_load_filetypes = 1
 '''
-
-# =================================================
-[[plugins]]
-repo = 'tpope/vim-fugitive'
 

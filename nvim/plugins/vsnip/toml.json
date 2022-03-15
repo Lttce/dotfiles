@@ -5,5 +5,19 @@
             "[[plugins]]",
             "repo = '$1'"
         ]
+    },
+    "hook_add": {
+        "prefix": "hookadd",
+        "body": [
+            "hook_add = '''$1",
+            "'''"
+        ]
+    },
+    "hook_source": {
+        "prefix": "hooksource",
+        "body": [
+            "hook_source = '''$1",
+            "'''"
+        ]
     }
 }
