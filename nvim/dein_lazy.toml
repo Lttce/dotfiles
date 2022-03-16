@@ -67,11 +67,12 @@ hook_source = '''
 # =================================================
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
-on_event = 'BufEnter'
+on_cmd = ['Telescope']
 depends = ['plenary.nvim', 'nvim-web-devicons']
+hook_add = '''
+    nnoremap <silent> <C-p> <cmd>Telescope find_files<CR>
+'''
 hook_source = '''
-nnoremap <silent> <C-p> <cmd>Telescope find_files<CR>
-
 lua << EOF
     require('telescope').setup({
         defaults = {
