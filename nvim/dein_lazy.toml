@@ -19,6 +19,7 @@ hook_source = '''
 [[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
 on_event = 'BufRead'
+depends = 'plenary.nvim'
 hook_source = '''
 lua << EOF
     local null_ls = require('null-ls')
@@ -67,7 +68,7 @@ hook_source = '''
 # =================================================
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
-on_cmd = ['Telescope']
+on_cmd = 'Telescope'
 depends = ['plenary.nvim', 'nvim-web-devicons']
 hook_add = '''
     nnoremap <silent> <C-p> <cmd>Telescope find_files<CR>
@@ -136,6 +137,10 @@ repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 hook_source = '''
     let g:quickrun_config = {}
-    let g:quickrun_config.python = {'command' : 'python3'}
+    let g:quickrun_config._ = {
+      \ 'outputter/buffer/opener': 'new',
+      \ 'outputter/buffer/into': 1,
+      \ }
+    let g:quickrun_config.python = { 'command' : 'python3' }
 '''
 
