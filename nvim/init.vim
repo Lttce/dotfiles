@@ -8,9 +8,9 @@
 "  Load plugins
 " ----------------------------------------
 
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
 if isdirectory(expand('~/.cache/dein'))
+    set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
     if dein#min#load_state('~/.cache/dein')
         call dein#begin('~/.cache/dein')
             call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
