@@ -100,6 +100,7 @@ augroup CustomFileType
     autocmd FileType make setlocal noexpandtab
     autocmd FileType go setlocal noexpandtab
     autocmd FileType gitcommit setlocal spell
+    autocmd FileType markdown setlocal spell
 augroup end
 
 augroup CustomCommand
