@@ -8,31 +8,30 @@
 "  Load plugins
 " ----------------------------------------
 
-if isdirectory(expand('~/.cache/dein'))
-    set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-    if dein#min#load_state('~/.cache/dein')
-        call dein#begin('~/.cache/dein')
-            call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
-            call dein#load_toml('~/dotfiles/nvim/dein_lazy.toml', { 'lazy': 1 })
-        call dein#end()
-        call dein#save_state()
-    endif
-
-    if dein#check_install()
-        call dein#install()
-    endif
-else
-    echo '[Notice] dein.vim is not installed.'
+if !isdirectory(expand('~/.cache/dein'))
+    call system("curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh"
+                \." | bash -s -- ~/.cache/dein")
 endif
 
-if isdirectory(expand('~/dotfiles/nvim/plugins'))
-    " Disable the runtime plugins
-    source ~/dotfiles/nvim/plugins/runtime.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-    " If set, startup time will be faster
-    source ~/dotfiles/nvim/plugins/clipboard.vim
+if dein#min#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
+        call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
+        call dein#load_toml('~/dotfiles/nvim/dein_lazy.toml', { 'lazy': 1 })
+    call dein#end()
+    call dein#save_state()
 endif
+
+if dein#check_install()
+    call dein#install()
+endif
+
+" Disable the runtime plugins
+source ~/dotfiles/nvim/plugins/runtime.vim
+
+" If set, startup time will be faster
+source ~/dotfiles/nvim/plugins/clipboard.vim
 
 " ----------------------------------------
 "  General
