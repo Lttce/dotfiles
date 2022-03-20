@@ -11,7 +11,6 @@
 if !isdirectory(expand('~/.cache/dein'))
     call system("curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh"
                 \." | bash -s -- ~/.cache/dein")
-    echo '[Notice] dein.vim installed.'
 endif
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
