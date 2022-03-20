@@ -1,4 +1,4 @@
-# Dotfiles
+# dotfiles
 
 ## Install scripts
 brew
@@ -8,14 +8,13 @@ brew
 
 dein.vim
 ```sh
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- ~/.cache/dein
 ```
 
 ## Symbolic link
 neovim
 ```sh
-ln -s ~/dotfiles/nvim ~/.config/nvim
+mkdir -p ~/.config && ln -s ~/dotfiles/nvim ~/.config
 ```
 
 vim
