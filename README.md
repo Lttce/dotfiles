@@ -6,26 +6,10 @@ brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-dein.vim
-```sh
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- ~/.cache/dein
-```
-
 ## Symbolic link
 neovim
 ```sh
-mkdir -p ~/.config && ln -s ~/dotfiles/nvim ~/.config
-```
-
-vim
-```sh
-ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-```
-
-tmux
-```sh
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-tmux source ~/.tmux.conf
+mkdir ~/.config && ln -s ~/dotfiles/nvim ~/.config
 ```
 
 ## Windows subsystem for Linux
