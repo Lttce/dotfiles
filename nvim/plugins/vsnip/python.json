@@ -15,7 +15,7 @@
         "body": "input().split()"
     },
     "input_map": {
-        "prefix": "mapinput",
+        "prefix": "mapintinput",
         "body": "map(int, input().split())"
     },
     "int_input": {
@@ -25,6 +25,13 @@
     "list_map_input": {
         "prefix": "listmapinput",
         "body": "list(map(int, input().split()))"
+    },
+    "def": {
+        "prefix": "def",
+        "body": [
+            "def $1():",
+            "    pass"
+        ]
     },
     "is_prime": {
         "prefix": "isprime",
