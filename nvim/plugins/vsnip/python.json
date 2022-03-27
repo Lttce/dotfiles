@@ -3,11 +3,11 @@
         "prefix": "main",
         "body": [
             "def main():",
-            "    pass$1",
+            "\tpass$1",
             "",
             "",
             "if __name__ == '__main__':",
-            "    main()"
+            "\tmain()"
         ]
     },
     "input_split": {
@@ -30,37 +30,37 @@
         "prefix": "def",
         "body": [
             "def $1():",
-            "    pass"
+            "\tpass"
         ]
     },
     "is_prime": {
         "prefix": "isprime",
         "body": [
             "def is_prime(n: int) -> bool:",
-            "    from math import floor, sqrt",
-            "    for i in range(2, floor(sqrt(n))+1):",
-            "        if n % i == 0:",
-            "            return False",
-            "    return True"
+            "\tfrom math import floor, sqrt",
+            "\tfor i in range(2, floor(sqrt(n))+1):",
+            "\t\tif n % i == 0:",
+            "\t\t\treturn False",
+            "\treturn True"
         ]
     },
     "eratosthenes_sieve": {
         "prefix": "eratosthenessieve",
         "body": [
             "def eratosthenes_sieve(n: int) -> list:",
-            "    primes_list = []",
-            "    is_prime = [True] * (n + 1)",
-            "    is_prime[0] = False",
-            "    is_prime[1] = False",
+            "\tprimes_list = []",
+            "\tis_prime = [True] * (n + 1)",
+            "\tis_prime[0] = False",
+            "\tis_prime[1] = False",
             "",
-            "    for i in range(n+1):",
-            "        if not is_prime[i]:",
-            "            continue",
-            "        primes_list.append(i)",
-            "        for j in range(i*i, n+1, i):",
-            "            is_prime[j] = False",
+            "\tfor i in range(n+1):",
+            "\t\tif not is_prime[i]:",
+            "\t\t\tcontinue",
+            "\t\tprimes_list.append(i)",
+            "\t\tfor j in range(i*i, n+1, i):",
+            "\t\t\tis_prime[j] = False",
             "",
-            "    return primes_list"
+            "\treturn primes_list"
         ]
     }
 }
