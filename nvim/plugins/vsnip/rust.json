@@ -1,0 +1,10 @@
+{
+    "input": {
+        "prefix": "input",
+        "body": [
+            "input! {",
+            "\t$1: $2,",
+            "}"
+        ]
+    }
+}

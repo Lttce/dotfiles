@@ -1,0 +1,20 @@
+{
+    "main": {
+        "prefix": "main",
+        "body": [
+            "package main",
+            "",
+            "func main() {",
+            "\t$1",
+            "}"
+        ]
+    },
+    "import": {
+        "prefix": "import",
+        "body": [
+            "import (",
+            "\t$1",
+            ")"
+        ]
+    }
+}
