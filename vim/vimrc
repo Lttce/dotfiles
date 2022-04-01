@@ -1,45 +1,85 @@
 " vim .vimrc
 
-" General
 syntax enable
 filetype indent plugin on
+
+set encoding=utf-8
 
 set nocompatible
 set nobackup
 set noswapfile
 
 " Colors
-augroup cutom_colorsheme
-    " Desert
-    autocmd ColorScheme desert highlight NonText guibg=NONE guifg=gray30
-augroup end
+autocmd ColorScheme desert highlight NonText guibg=NONE guifg=gray30
+autocmd ColorScheme slate highlight PreProc guibg=NONE
 
-set termguicolors
+colorscheme slate
 
-" Without this, colorshemes will not be enable in tmux
-let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+if exists('$TMUX')
+    let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+    let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+endif
 
-" Please defined after the highlight command
-colorscheme desert
-
+if exists('+termguicolors')
+   set termguicolors
+endif
 
 " Edit
 set number
-set laststatus=2
 
+set autoread
+set hidden
+
+set autoindent
+set smartindent
+
+set smarttab
 set expandtab
 set shiftwidth=4
+set tabstop=4
 
 set list
-
-set completeopt=menuone,noinsert
+set listchars=tab:>\ ,trail:-
 
 inoremap jk <ESC>
 
+nnoremap x "_x
+vnoremap x "_x
+
+" Complete
+set completeopt=menuone,preview
+
+" Statusline
+set laststatus=2
+set ruler
+
 " Command
 set wildmenu
+set wildoptions=pum
+
+set showcmd
+
+" Terminal
+tnoremap <ESC> <C-\><C-n>
+tnoremap jk <C-\><C-n>
 
 " Search
 set incsearch
+set hlsearch
+set smartcase
+set ignorecase
+
+set shortmess-=S " Show match counts
+
+" General
+set mouse=a
+set belloff=all
+
+if exists('+clipboard')
+    set clipboard+=unnamed
+endif
+
+augroup cmd
+    autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+augroup end
 
