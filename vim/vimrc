@@ -15,14 +15,15 @@ autocmd ColorScheme slate highlight PreProc guibg=NONE
 
 colorscheme slate
 
+if exists('+termguicolors')
+   set termguicolors
+endif
+
 if exists('$TMUX')
     let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
     let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 endif
 
-if exists('+termguicolors')
-   set termguicolors
-endif
 
 " Edit
 set number
@@ -46,6 +47,15 @@ inoremap jk <ESC>
 nnoremap x "_x
 vnoremap x "_x
 
+" Cursor
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+else
+    let &t_SI = "\e[5 q"
+    let &t_EI = "\e[2 q"
+endif
+
 " Complete
 set completeopt=menuone,preview
 
@@ -54,8 +64,13 @@ set laststatus=2
 set ruler
 
 " Command
-set wildmenu
-set wildoptions=pum
+if exists('+wildmenu')
+    set wildmenu
+endif
+
+if exists('+wildignore')
+    set wildoptions=pum
+endif
 
 set showcmd
 
