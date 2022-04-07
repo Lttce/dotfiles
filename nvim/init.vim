@@ -115,11 +115,7 @@ augroup end
 
 function! s:GetBufByte()
     let byte = line2byte(line('$') + 1)
-    if byte == -1
-        return 0
-    else
-        return byte - 1
-    endif
+    return byte == -1 ? 0 : byte - 1
 endfunction
 
 " ----------------------------------------
