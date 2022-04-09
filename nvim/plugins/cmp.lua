@@ -2,7 +2,7 @@
 
 local cmp = require('cmp')
 
-vim.opt.completeopt = {"menu", "menuone", "noselect"}
+vim.opt.completeopt = {"menu", "menuone", "noselect", "noinsert"}
 
 cmp.setup({
     snippet = {

@@ -16,5 +16,17 @@
             "\t$1",
             ")"
         ]
+    },
+    "type": {
+        "prefix": "type",
+        "body": [
+            "type $1 struct {",
+            "\t$2",
+            "}"
+        ]
+    },
+    "print": {
+        "prefix": "print",
+        "body": "fmt.Printf(\"%v\\n\", $1)"
     }
 }

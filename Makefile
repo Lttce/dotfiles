@@ -1,3 +1,6 @@
+#
+# setup Makefile
+#
 usage:
 	@echo "Enter 'make link' to create a symbolic links."
 	@echo "Enter 'make install' to install applications."
