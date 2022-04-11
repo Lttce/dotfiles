@@ -24,7 +24,6 @@ if exists('$TMUX')
     let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 endif
 
-
 " Edit
 set number
 
@@ -41,6 +40,8 @@ set tabstop=4
 
 set list
 set listchars=tab:>\ ,trail:-
+
+set backspace=indent,eol,start
 
 inoremap jk <ESC>
 
@@ -94,6 +95,7 @@ if exists('+clipboard')
     set clipboard+=unnamed
 endif
 
+" custom cmd
 augroup cmd
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 augroup end

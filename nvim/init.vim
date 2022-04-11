@@ -9,8 +9,9 @@
 " ----------------------------------------
 
 if !isdirectory(expand('~/.cache/dein'))
-    call system("curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh"
-                \." | bash -s -- ~/.cache/dein")
+    let s:url = 'https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh'
+    let s:dir = '~/.cache/dein'
+    call system('curl '.s:url.' | bash -s -- '.s:dir)
 endif
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
@@ -83,7 +84,7 @@ set scrolloff=999
 set hidden
 
 " wait time for key input
-set timeoutlen=300
+set timeoutlen=1000
 
 inoremap jk <ESC>
 
@@ -100,6 +101,7 @@ augroup CustomFileType
     autocmd FileType go setlocal noexpandtab
     autocmd FileType gitcommit setlocal spell
     autocmd FileType markdown setlocal spell
+    autocmd FileType typescriptreact setlocal shiftwidth=2
 augroup end
 
 augroup CustomCommand
@@ -114,8 +116,8 @@ augroup CustomCommand
 augroup end
 
 function! s:GetBufByte()
-    let byte = line2byte(line('$') + 1)
-    return byte == -1 ? 0 : byte - 1
+    let s:byte = line2byte(line('$') + 1)
+    return s:byte == -1 ? 0 : s:byte - 1
 endfunction
 
 " ----------------------------------------
