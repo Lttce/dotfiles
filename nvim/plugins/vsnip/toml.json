@@ -7,17 +7,25 @@
         ]
     },
     "hook_add": {
-        "prefix": "hookadd",
+        "prefix": "hook_add",
         "body": [
             "hook_add = '''$1",
             "'''"
         ]
     },
     "hook_source": {
-        "prefix": "hooksource",
+        "prefix": "hook_source",
         "body": [
             "hook_source = '''$1",
             "'''"
         ]
+    },
+    "on_cmd": {
+        "prefix": "on_cmd",
+        "body": "on_cmd = \"$1\""
+    },
+    "on_event": {
+        "prefix": "on_event",
+        "body": "on_event = \"$1\""
     }
 }
