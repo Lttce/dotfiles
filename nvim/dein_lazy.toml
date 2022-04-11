@@ -143,3 +143,15 @@ hook_source = '''
     let g:quickrun_config.python = { 'command' : 'python3' }
 '''
 
+# =================================================
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+on_event = "BufRead"
+hook_post_update = "TSUpdate"
+hook_source = '''
+lua << EOF
+    require('nvim-treesitter.configs').setup {
+        highlight = { enable = false }
+    }
+EOF
+'''
