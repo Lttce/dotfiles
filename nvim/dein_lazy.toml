@@ -6,19 +6,19 @@
 
 # =================================================
 [[plugins]]
-repo = 'neovim/nvim-lspconfig'
+repo = 'sainnhe/edge'
+on_event = "ColorSchemePre"
 hook_source = '''
-lua << EOF
--- Server configurations
---   https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- Write what you want to add
-
-    require('lspconfig').emmet_ls.setup {
-        filetypes = { 'typescriptreact' }
-    }
-
-EOF
+    let g:edge_style = 'aura'
+    let g:edge_better_performance = 1
+    let g:edge_transparent_background = 0
+    let g:edge_disable_italic_comment = 1
+    let g:edge_enable_italic = 0
 '''
+
+# =================================================
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
@@ -84,6 +84,7 @@ on_cmd = 'Telescope'
 depends = ['plenary.nvim', 'nvim-web-devicons']
 hook_add = '''
     nnoremap <silent> <C-p> <cmd>Telescope find_files<CR>
+    nnoremap <silent> <C-k> <cmd>Telescope buffers<CR>
 '''
 hook_source = '''
 lua << EOF
@@ -167,3 +168,4 @@ lua << EOF
     }
 EOF
 '''
+

@@ -83,6 +83,8 @@ set scrolloff=999
 
 set hidden
 
+set nowrap
+
 " wait time for key input
 set timeoutlen=1000
 

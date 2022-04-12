@@ -13,13 +13,9 @@ hook_add = '''
 
 # =================================================
 [[plugins]]
-repo = 'sainnhe/edge'
+repo = 'nathom/filetype.nvim'
 hook_add = '''
-    let g:edge_style = 'aura'
-    let g:edge_better_performance = 1
-    let g:edge_transparent_background = 0
-    let g:edge_disable_italic_comment = 1
-    let g:edge_enable_italic = 0
+    let g:did_load_filetypes = 1
 '''
 
 # =================================================
@@ -41,12 +37,5 @@ hook_add = '''
         let l:current_branch = FugitiveHead()
         return !empty(current_branch) ? "\ue725 ".current_branch : ''
     endfunction
-'''
-
-# =================================================
-[[plugins]]
-repo = 'nathom/filetype.nvim'
-hook_add = '''
-    let g:did_load_filetypes = 1
 '''
 
