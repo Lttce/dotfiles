@@ -55,7 +55,7 @@ augroup CustomColorscheme
     autocmd ColorScheme * highlight SignColumn None
 augroup end
 
-set termguicolors
+" set termguicolors
 
 colorscheme edge
 
