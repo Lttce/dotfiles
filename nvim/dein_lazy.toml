@@ -16,6 +16,14 @@ hook_source = '''
     let g:edge_enable_italic = 0
 '''
 
+[[plugins]]
+repo = 'sainnhe/gruvbox-material'
+on_event = "ColorSchemePre"
+
+[[plugins]]
+repo = 'sainnhe/everforest'
+on_event = "ColorSchemePre"
+
 # =================================================
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
