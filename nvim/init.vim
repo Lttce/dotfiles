@@ -55,7 +55,7 @@ augroup CustomColorscheme
     autocmd ColorScheme * highlight SignColumn None
 augroup end
 
-" set termguicolors
+set termguicolors
 
 colorscheme edge
 
@@ -74,8 +74,6 @@ set smartindent
 
 set list
 
-set virtualedit=onemore,block
-
 set splitbelow
 set splitright
 
@@ -84,9 +82,6 @@ set scrolloff=999
 set hidden
 
 set nowrap
-
-" wait time for key input
-set timeoutlen=1000
 
 inoremap jk <ESC>
 
@@ -135,7 +130,10 @@ tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 
 " Disable commands history
-noremap q: <NOP>
+nnoremap q: <NOP>
+
+" Disable recoding
+nnoremap q <NOP>
 
 " Open a termial with ':T'
 command T split | resize 10 | terminal

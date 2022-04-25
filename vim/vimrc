@@ -10,8 +10,8 @@ set nobackup
 set noswapfile
 
 " Colors
-autocmd ColorScheme desert highlight NonText guibg=NONE guifg=gray30
-autocmd ColorScheme slate highlight PreProc guibg=NONE
+" autocmd ColorScheme desert highlight NonText guibg=NONE guifg=gray30
+" autocmd ColorScheme slate highlight PreProc guibg=NONE
 
 colorscheme slate
 

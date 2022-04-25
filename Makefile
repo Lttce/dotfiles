@@ -7,7 +7,7 @@ usage:
 
 all: link install
 
-link: clear neovim vim tmux
+link: neovim vim tmux
 
 clear:
 	unlink ~/.vimrc
