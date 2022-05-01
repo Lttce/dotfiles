@@ -1,4 +1,1 @@
 # dotfiles
-```sh
-make all
-```
