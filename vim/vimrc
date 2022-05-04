@@ -1,19 +1,17 @@
 " vim .vimrc
 
-syntax enable
-filetype indent plugin on
-
 set encoding=utf-8
 
 set nocompatible
 set nobackup
 set noswapfile
 
-" Colors
-" autocmd ColorScheme desert highlight NonText guibg=NONE guifg=gray30
-" autocmd ColorScheme slate highlight PreProc guibg=NONE
+syntax enable
+filetype indent plugin on
 
-colorscheme slate
+" Colors
+
+colorscheme evening
 
 if exists('+termguicolors')
    set termguicolors
@@ -25,6 +23,7 @@ if exists('$TMUX')
 endif
 
 " Edit
+
 set number
 
 set autoread
@@ -48,23 +47,15 @@ inoremap jk <ESC>
 nnoremap x "_x
 vnoremap x "_x
 
-" Cursor
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-else
-    let &t_SI = "\e[5 q"
-    let &t_EI = "\e[2 q"
-endif
-
-" Complete
-set completeopt=menuone,preview
-
 " Statusline
+
 set laststatus=2
 set ruler
 
+set showtabline=2
+
 " Command
+
 if exists('+wildmenu')
     set wildmenu
 endif
@@ -75,11 +66,8 @@ endif
 
 set showcmd
 
-" Terminal
-tnoremap <ESC> <C-\><C-n>
-tnoremap jk <C-\><C-n>
-
 " Search
+
 set incsearch
 set hlsearch
 set smartcase
@@ -88,15 +76,18 @@ set ignorecase
 set shortmess-=S " Show match counts
 
 " General
+
 set mouse=a
 set belloff=all
 
-if exists('+clipboard')
-    set clipboard+=unnamed
-endif
-
-" custom cmd
-augroup cmd
-    autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-augroup end
+let g:loaded_gzip               = 1
+let g:loaded_man                = 1
+let g:loaded_matchit            = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_shada_plugin       = 1
+let g:loaded_spellfile_plugin   = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_zipPlugin          = 1
 
