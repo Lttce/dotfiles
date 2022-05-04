@@ -33,7 +33,7 @@ repo = 'williamboman/nvim-lsp-installer'
 on_event = 'BufRead'
 depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
 hook_source = '''
-    source ~/.config/nvim/plugins/lsp.lua
+    source ~/dotfiles/nvim/plugins/lsp.lua
 '''
 
 [[plugins]]
@@ -56,7 +56,7 @@ EOF
 repo = 'hrsh7th/nvim-cmp'
 on_event = 'InsertEnter'
 hook_source = '''
-    source ~/.config/nvim/plugins/cmp.lua
+    source ~/dotfiles/nvim/plugins/cmp.lua
 '''
 
 [[plugins]]
