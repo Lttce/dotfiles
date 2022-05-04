@@ -29,7 +29,7 @@
     "def": {
         "prefix": "def",
         "body": [
-            "def $1():",
+            "def $1($2) -> $3:",
             "\tpass"
         ]
     },
