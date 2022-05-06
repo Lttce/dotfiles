@@ -24,7 +24,11 @@
     },
     "list_map_input": {
         "prefix": "listmapinput",
-        "body": "list(map(int, input().split()))"
+        "body": "list(map(${1:int}, input().split()))"
+    },
+    "list_map_input_for": {
+        "prefix": "listmapinputfor",
+        "body": "[list(map(${1:int}, input().split())) for _ in range($2)]"
     },
     "def": {
         "prefix": "def",
