@@ -136,10 +136,10 @@ nnoremap q: <NOP>
 nnoremap q <NOP>
 
 " Open a termial with ':T'
-command T split | resize 10 | terminal
+command T split | resize 5 | terminal
 
-" Close a terminal with input ':q'
-tnoremap :q <C-\><C-n>:q<CR>
+" don't show [Process exited 0]
+autocmd TermClose * call feedkeys('i')
 
 " ----------------------------------------
 "  Search
