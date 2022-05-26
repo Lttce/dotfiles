@@ -21,7 +21,7 @@ if !(which brew > /dev/null 2>&1); then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-if [ -e ~/dotfiles/Brewfile ]; then
+if [ -e ~/dotfiles/brew/Brewfile ]; then
     brew bundle --file ~/dotfiles/brew/Brewfile
 fi
 
