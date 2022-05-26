@@ -22,10 +22,10 @@
     },
     "on_cmd": {
         "prefix": "on_cmd",
-        "body": "on_cmd = \"$1\""
+        "body": "on_cmd = '$1'"
     },
     "on_event": {
         "prefix": "on_event",
-        "body": "on_event = \"$1\""
+        "body": "on_event = '$1'"
     }
 }
