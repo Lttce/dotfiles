@@ -203,3 +203,13 @@ hook_source = '''
     let g:indent_guides_guide_size = 1
 '''
 
+# =================================================
+[[plugins]]
+repo = 'voldikss/vim-floaterm'
+on_cmd = 'FloatermToggle'
+hook_add = '''
+    nnoremap <space>t <cmd>FloatermToggle<CR>
+'''
+hook_source = '''
+    autocmd Filetype floaterm nnoremap <buffer> <ESC> <cmd>FloatermToggle<CR>
+'''
