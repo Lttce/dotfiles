@@ -2,8 +2,6 @@
     "main": {
         "prefix": "main",
         "body": [
-            "#include <iostream>",
-            "",
             "int main() {",
             "\t$1",
             "\treturn 0;",
@@ -12,6 +10,6 @@
     },
     "vector": {
         "prefix": "vector",
-        "body": "vector<${1:type}> ${2:variable}(${3:num}, ${4:init});"
+        "body": "vector<${1:int}> ${2:a}(${3:0}, ${4:0});"
     }
 }

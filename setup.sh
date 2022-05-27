@@ -16,8 +16,7 @@ sudo apt install build-essential -y
 #
 
 if !(which brew > /dev/null 2>&1); then
-    NONINTERACTIVE=1
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi

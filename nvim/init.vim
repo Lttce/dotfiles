@@ -127,7 +127,6 @@ augroup end
 
 " Exit inset mode when using the terminal
 tnoremap <ESC> <C-\><C-n>
-tnoremap jk <C-\><C-n>
 
 " Disable commands history
 nnoremap q: <NOP>

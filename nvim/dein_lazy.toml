@@ -213,3 +213,4 @@ hook_add = '''
 hook_source = '''
     autocmd Filetype floaterm nnoremap <buffer> <ESC> <cmd>FloatermToggle<CR>
 '''
+

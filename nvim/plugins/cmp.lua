@@ -14,6 +14,7 @@ cmp.setup({
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<CR>'] = cmp.mapping.confirm(),
+        ['<C-space>'] = cmp.mapping.complete(),
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
