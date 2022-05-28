@@ -11,5 +11,63 @@
     "vector": {
         "prefix": "vector",
         "body": "vector<${1:int}> ${2:a}(${3:0}, ${4:0});"
+    },
+    "bit_full_search": {
+        "prefix": "bitfullsearch",
+        "body": [
+            "for (auto b = 0; b < (1 << ${1:a}.size()); b++) {",
+            "\tfor (uint i = 0; i < $1.size(); i++) {",
+            "\t\t\tif (b & (1 << i)) {",
+            "\t\t\t\t$2",
+            "\t\t}",
+            "\t}",
+            "}"
+        ]
+    },
+    "cout": {
+        "prefix": "cout",
+        "body": "cout << $1 << \"\\n\";"
+    },
+    "cin": {
+        "prefix": "cin",
+        "body": "cin >> $1;"
+    },
+    "lambda": {
+        "prefix": "lambda",
+        "body": [
+            "auto $1 = []() -> $2 {",
+            "\treturn $3;",
+            "}();"
+        ]
+    },
+    "for": {
+        "prefix": "for",
+        "body": [
+            "for(${1:int} ${2:i} = 0; $2 < ${3:n}; $2++){",
+            "\t$4",
+            "}"
+        ]
+    },
+    "template_vector_cin": {
+        "prefix": "templatevectorcin",
+        "body": [
+            "template <typename T>",
+            "istream &operator>>(istream &is, vector<T> &v) {",
+            "\tfor (T &x : v)",
+            "\t\tis >> x;",
+            "\treturn is;",
+            "}"
+        ]
+    },
+    "template_vector_cout": {
+        "prefix": "templatevectorcout",
+        "body": [
+            "template <typename T>",
+            "ostream &operator<<(ostream &os, vector<T> &v) {",
+            "\tfor (uint i = 0; i < v.size(); i++)",
+            "\t\tos << v[i] << (i + 1 == v.size() ? \"\" : \" \");",
+            "\treturn os;",
+            "}"
+        ]
     }
 }
