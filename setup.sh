@@ -29,21 +29,19 @@ fi
 # Symbolic links
 #
 
-if [ -d ~/dotfiles ]; then
-    if [ ! -d ~/.config ]; then
-        mkdir -p ~/.config
-    fi
+if [ ! -d ~/.config ]; then
+    mkdir -p ~/.config
+fi
 
-    if [ ! -L ~/.config/nvim ]; then
-        ln -s ~/dotfiles/nvim ~/.config
-    fi
+if [ ! -L ~/.config/nvim ]; then
+    ln -s ~/dotfiles/nvim ~/.config
+fi
 
-    if [ ! -L ~/.vimrc ]; then
-        ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-    fi
+if [ ! -L ~/.vimrc ]; then
+    ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+fi
 
-    if [ ! -L ~/.tmux.conf ]; then
-        ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-    fi
+if [ ! -L ~/.tmux.conf ]; then
+    ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 fi
 
