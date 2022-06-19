@@ -12,11 +12,30 @@ sudo apt upgrade -y
 sudo apt install build-essential -y
 
 #
+# Requirement
+#
+
+if !(which curl> /dev/null 2>&1); then
+    sudo apt install -y curl
+fi
+
+if !(which git > /dev/null 2>&1); then
+    sudo apt install -y git
+fi
+
+#
+# Clone repository
+#
+
+git clone https://github.com/Lttce/dotfiles.git
+
+#
 # Homebrew
 #
 
 if !(which brew > /dev/null 2>&1); then
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    export NONINTERACTIVE=1
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
     source /home/$USER/.profile
 fi
