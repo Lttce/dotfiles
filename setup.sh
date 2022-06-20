@@ -2,6 +2,12 @@
 
 set -e
 
+if [ ${EUID:-${UID}} = 0 ]; then
+    echo 'Your is super user.'
+    echo 'Please change general user.'
+    exit
+fi
+
 #
 # apt package
 #
