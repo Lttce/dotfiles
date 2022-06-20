@@ -9,11 +9,13 @@ set -e
 sudo apt update -y 
 sudo apt upgrade -y
 
-sudo apt install build-essential -y
-
 #
 # Requirement
 #
+
+if !(which gcc> /dev/null 2>&1); then
+    sudo apt install -y build-essential
+fi
 
 if !(which curl> /dev/null 2>&1); then
     sudo apt install -y curl
