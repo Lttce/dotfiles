@@ -19,11 +19,11 @@ sudo apt upgrade -y
 # Requirement
 #
 
-if !(which gcc> /dev/null 2>&1); then
+if !(which gcc > /dev/null 2>&1); then
     sudo apt install -y build-essential
 fi
 
-if !(which curl> /dev/null 2>&1); then
+if !(which curl > /dev/null 2>&1); then
     sudo apt install -y curl
 fi
 
@@ -35,7 +35,7 @@ fi
 # Clone repository
 #
 
-if [ ! -d ~/.dotfiles ]; then
+if [ ! -d ~/dotfiles ]; then
     cd $HOME
     git clone https://github.com/Lttce/dotfiles.git
 fi
