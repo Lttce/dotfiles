@@ -35,7 +35,10 @@ fi
 # Clone repository
 #
 
-git clone https://github.com/Lttce/dotfiles.git
+if [ ! -d ~/.dotfiles ]; then
+    cd $HOME
+    git clone https://github.com/Lttce/dotfiles.git
+fi
 
 #
 # Homebrew
