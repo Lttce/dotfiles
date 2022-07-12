@@ -1,3 +1,19 @@
+" dein.vim
+
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+if dein#min#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
+        call dein#load_toml('~/.config/vim/dein.toml'     , { 'lazy': 0 })
+        call dein#load_toml('~/.config/vim/dein_lazy.toml', { 'lazy': 1 })
+    call dein#end()
+    call dein#save_state()
+endif
+
+if dein#check_install()
+    call dein#install()
+endif
+
 " vim .vimrc
 
 set encoding=utf-8
@@ -80,7 +96,9 @@ set shortmess-=S " Show match counts
 set mouse=a
 set belloff=all
 
-set clipboard+=unnamed
+set clipboard=unnamedplus
+
+set shellslash
 
 " cursor shapes
 if has('vim_starting')

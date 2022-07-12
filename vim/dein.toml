@@ -1,0 +1,67 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+hook_add = '''
+    let g:dein#auto_recache = v:true 
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    set noshowmode
+    let g:lightline = {}
+
+    let g:lightline.colorscheme = 'nord'
+    let g:lightline.separator = { 'left': "\ue0b0", 'right': "\ue0b2" }
+    let g:lightline.subseparator = { 'left': "\ue0b1", 'right': "\ue0b3" }
+    let g:lightline.active = { 'left': [ ['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified']  ]  }
+    let g:lightline.component_function = { 'gitbranch': 'Branch'  }
+
+    function Branch() abort
+        let l:current_branch = FugitiveHead()
+        return !empty(current_branch) ? "\ue725 ".current_branch : ''
+    endfunction
+'''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+    set updatetime=500
+    let g:gitgutter_map_keys = 0
+'''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+    set signcolumn=yes
+'''
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc.vim' 
+hook_add = '''
+call ddc#custom#patch_global('sources', ['around'])
+
+call ddc#custom#patch_global('sourceOptions', {
+      \ '_': {
+      \   'smartCase': v:true,
+      \   'ignoreCase': v:true,
+      \   'matchers': ['matcher_head'],
+      \   'sorters': ['sorter_rank']},
+      \ })
+
+call ddc#enable()
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
