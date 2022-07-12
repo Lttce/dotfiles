@@ -16,7 +16,10 @@ endif
 
 " vim .vimrc
 
+language C
+
 set encoding=utf-8
+set fileencoding=utf-8
 
 set nocompatible
 set nobackup
@@ -53,6 +56,9 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 
+set splitbelow
+set splitright
+
 set list
 set listchars=tab:>\ ,trail:-
 
@@ -63,6 +69,8 @@ inoremap jk <ESC>
 nnoremap x "_x
 vnoremap x "_x
 
+nmap q <NOP>
+
 " Statusline
 
 set laststatus=2
@@ -72,13 +80,8 @@ set showtabline=2
 
 " Command
 
-if exists('+wildmenu')
-    set wildmenu
-endif
-
-if exists('+wildignore')
-    set wildoptions=pum
-endif
+set wildmenu
+set wildoptions=pum
 
 set showcmd
 
@@ -96,9 +99,12 @@ set shortmess-=S " Show match counts
 set mouse=a
 set belloff=all
 
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 
 set shellslash
+
+" Save last cursor position
+autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " cursor shapes
 if has('vim_starting')

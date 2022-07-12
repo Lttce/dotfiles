@@ -65,3 +65,12 @@ repo = 'Shougo/ddc-sorter_rank'
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+    " Execute arbitrary commands without arguments
+    autocmd VimEnter * if @% == '' && s:GetBufByte() == 0 | CtrlP | endif
+
+    function! s:GetBufByte()
+        let s:byte = line2byte(line('$') + 1)
+        return s:byte == -1 ? 0 : s:byte - 1
+    endfunction
+'''
