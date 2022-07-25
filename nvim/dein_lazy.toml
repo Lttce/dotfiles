@@ -48,6 +48,8 @@ hook_source = '''
 lua << EOF
     local null_ls = require('null-ls')
     local sources = {
+        null_ls.builtins.diagnostics.hadolint,
+
         null_ls.builtins.formatting.isort,
         null_ls.builtins.formatting.black,
     }
