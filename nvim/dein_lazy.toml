@@ -33,14 +33,6 @@ on_event = 'ColorSchemePre'
 repo = 'neovim/nvim-lspconfig'
 
 [[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
-on_event = 'BufRead'
-depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
-hook_source = '''
-    source ~/dotfiles/nvim/plugins/lsp.lua
-'''
-
-[[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
 on_event = 'BufRead'
 depends = 'plenary.nvim'
