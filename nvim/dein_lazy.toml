@@ -23,6 +23,10 @@ on_event = 'ColorSchemePre'
 [[plugins]]
 repo = 'sainnhe/everforest'
 on_event = 'ColorSchemePre'
+hook_source = '''
+    let g:everforest_background = 'hard'
+    let g:everforest_better_performance = 1
+'''
 
 [[plugins]]
 repo = 'arcticicestudio/nord-vim'
