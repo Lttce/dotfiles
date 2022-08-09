@@ -57,7 +57,7 @@ augroup end
 
 set termguicolors
 
-colorscheme edge
+colorscheme everforest
 
 " ----------------------------------------
 "  Edit
