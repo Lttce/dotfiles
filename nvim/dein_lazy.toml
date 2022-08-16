@@ -237,3 +237,8 @@ hook_source = '''
     autocmd Filetype floaterm nnoremap <buffer> <ESC> <cmd>FloatermToggle<CR>
 '''
 
+# =================================================
+[[plugins]]
+repo = 'folke/trouble.nvim'
+depends = ['nvim-lspconfig', 'nvim-web-devicons']
+
