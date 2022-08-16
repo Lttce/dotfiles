@@ -171,11 +171,12 @@ hook_source = '''
 # =================================================
 # Mark changes in files managed by Git
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo = 'lewis6991/gitsigns.nvim'
 on_event = 'BufRead'
 hook_source = '''
-    set updatetime=500
-    let g:gitgutter_map_keys = 0
+lua << EOF
+    require('gitsigns').setup()
+EOF
 '''
 
 # Git commands
