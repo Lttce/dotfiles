@@ -179,6 +179,10 @@ lua << EOF
 EOF
 '''
 
+[[plugins]]
+repo = 'iberianpig/tig-explorer.vim'
+on_cmd = 'Tig'
+
 # =================================================
 [[plugins]]
 repo = 'thinca/vim-quickrun'
