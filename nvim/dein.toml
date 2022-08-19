@@ -30,7 +30,7 @@ hook_add = '''
 # =================================================
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-depends = ['vim-fugitive']
+depends = 'vim-gitbranch'
 hook_add = '''
     set noshowmode
     let g:lightline = {}
@@ -43,8 +43,11 @@ hook_add = '''
     let g:lightline.component_function = { 'gitbranch': 'Branch' }
 
     function Branch() abort
-        let l:current_branch = FugitiveHead()
+        let l:current_branch = gitbranch#name() 
         return !empty(current_branch) ? "\ue725 ".current_branch : ''
     endfunction
 '''
 
+[[plugins]]
+repo = 'itchyny/vim-gitbranch'
+on_func = 'gitbranch#name()'

@@ -172,17 +172,12 @@ hook_source = '''
 # Mark changes in files managed by Git
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-on_event = 'BufRead'
+on_if = '!empty(gitbranch#name())'
 hook_source = '''
 lua << EOF
     require('gitsigns').setup()
 EOF
 '''
-
-# Git commands
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-on_cmd = ['G', 'Git']
 
 # =================================================
 [[plugins]]
