@@ -42,7 +42,6 @@ set nobackup
 set noswapfile
 
 set clipboard+=unnamedplus
-set mouse=a
 
 syntax enable
 filetype plugin indent on
@@ -57,7 +56,7 @@ augroup end
 
 set termguicolors
 
-colorscheme everforest
+colorscheme edge
 
 " ----------------------------------------
 "  Edit
