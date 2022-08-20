@@ -51,9 +51,9 @@ if !(which brew > /dev/null 2>&1); then
     source /home/$USER/.profile
 fi
 
-if [ -e ~/dotfiles/brew/Brewfile ]; then
-    brew bundle --file ~/dotfiles/brew/Brewfile
-fi
+# if [ -e ~/dotfiles/brew/Brewfile ]; then
+#     brew bundle --file ~/dotfiles/brew/Brewfile
+# fi
 
 #
 # Symbolic links
