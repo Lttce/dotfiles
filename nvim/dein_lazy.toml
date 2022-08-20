@@ -227,9 +227,17 @@ repo = 'voldikss/vim-floaterm'
 on_cmd = 'FloatermToggle'
 hook_add = '''
     nnoremap <space>t <cmd>FloatermToggle<CR>
+    nnoremap T <cmd>FloatermNew tig<CR>
 '''
 hook_source = '''
-    autocmd Filetype floaterm nnoremap <buffer> <ESC> <cmd>FloatermToggle<CR>
+    let g:floaterm_width = 0.8
+    let g:floaterm_height = 0.8
+    let g:floaterm_opener = 'tabe'
+    let g:floaterm_borderchars = '─│─│╭╮╯╰'
+
+    augroup CustomFloaterm
+        autocmd Filetype floaterm nnoremap <buffer> <ESC> <cmd>FloatermToggle<CR>
+    augroup end
 '''
 
 # =================================================
