@@ -17,20 +17,12 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'sainnhe/gruvbox-material'
-on_event = 'ColorSchemePre'
-
-[[plugins]]
 repo = 'sainnhe/everforest'
 on_event = 'ColorSchemePre'
 hook_source = '''
     let g:everforest_background = 'hard'
     let g:everforest_better_performance = 1
 '''
-
-[[plugins]]
-repo = 'arcticicestudio/nord-vim'
-on_event = 'ColorSchemePre'
 
 # =================================================
 [[plugins]]
@@ -39,7 +31,6 @@ repo = 'neovim/nvim-lspconfig'
 [[plugins]]
 repo = 'williamboman/mason.nvim'
 on_event = 'BufRead'
-depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
 hook_source = '''
 lua << EOF
     require('mason').setup({})
@@ -49,7 +40,7 @@ EOF
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
 depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
-on_source = ['mason.nvim']
+on_source = 'mason.nvim'
 hook_source = '''
     source ~/dotfiles/nvim/plugins/lsp.lua
 '''
@@ -84,16 +75,16 @@ hook_source = '''
 
 [[plugins]]
 repo = 'hrsh7th/cmp-buffer'
-on_source = ['nvim-cmp']
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp'
-on_source = ['nvim-cmp']
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-vsnip'
-on_source = ['nvim-cmp']
-depends = ['vim-vsnip']
+on_source = 'nvim-cmp'
+depends = 'vim-vsnip'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
@@ -110,11 +101,11 @@ hook_source = '''
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp-document-symbol'
-on_source = ['nvim-cmp']
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp-signature-help'
-on_source = ['nvim-cmp']
+on_source = 'nvim-cmp'
 
 # =================================================
 [[plugins]]
