@@ -237,3 +237,19 @@ repo = 'folke/trouble.nvim'
 on_cmd = 'TroubleToggle'
 depends = ['nvim-lspconfig', 'nvim-web-devicons']
 
+# =================================================
+[[plugins]]
+repo = 'obaland/vfiler.vim'
+on_cmd = 'VFiler'
+hook_add = '''
+    nnoremap <space>p <cmd>VFiler<CR>
+'''
+hook_source = '''
+lua << EOF
+    require('vfiler/config').setup {
+    }
+
+    require('vfiler').start()
+EOF
+'''
+
