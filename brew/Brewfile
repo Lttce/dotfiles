@@ -1,5 +1,11 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
+
+brew "git"
+
+brew "vim"
+brew "neovim"
+
 brew "go"
 brew "nodebrew"
 brew "rust"
