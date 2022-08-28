@@ -2,6 +2,15 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 
 brew "git"
+brew "tig"
+
+brew "curl"
+brew "tmux"
+brew "tree"
+
+brew "fd"
+brew "bat"
+brew "ripgrep"
 
 brew "vim"
 brew "neovim"
@@ -10,3 +19,4 @@ brew "go"
 brew "nodebrew"
 brew "rust"
 brew "rustfmt"
+brew "deno"
