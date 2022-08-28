@@ -1,6 +1,7 @@
 -- nvim-lsp
 require('mason-lspconfig').setup_handlers {
     function(server_name)
+
         local opts = {}
 
         -- Config each servers
@@ -20,6 +21,27 @@ require('mason-lspconfig').setup_handlers {
             }
         end
 
+        local node_root_dir = require('lspconfig').util.root_pattern("package.json")
+        local is_node_repo = node_root_dir(vim.api.nvim_buf_get_name(0)) ~= nil
+
+        if server_name == "tsserver" then
+            if not is_node_repo then
+                return
+            end
+            opts.root_dir = node_root_dir
+        elseif server_name == "eslint" then
+            if not is_node_repo then
+                return
+            end
+            opts.root_dir = node_root_dir
+        elseif server_name == 'denols' then
+            if is_node_repo then
+                return
+            end
+            opts.root_dir =
+            require('lspconfig').util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json")
+        end
+
         -- Key mapping
         opts.on_attach = function(_, bufnr)
             local function buf_set_keymap(...)
@@ -34,7 +56,7 @@ require('mason-lspconfig').setup_handlers {
             buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', buf_opts)
         end
 
-        -- enable nvim-cmp 
+        -- enable nvim-cmp
         opts.update_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
         -- launch server

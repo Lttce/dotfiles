@@ -240,9 +240,17 @@ depends = ['nvim-lspconfig', 'nvim-web-devicons']
 # =================================================
 [[plugins]]
 repo = 'obaland/vfiler.vim'
+rev = 'f6b76e05a94c23badc447de0bda1f89a0d67fcbe'
 on_cmd = 'VFiler'
 hook_add = '''
     nnoremap <space>p <cmd>VFiler<CR>
+
+    " Execute arbitrary commands without arguments
+    autocmd VimEnter * if @% == '' && s:GetBufByte() == 0 | VFiler | endif
+    function! s:GetBufByte()
+        let s:byte = line2byte(line('$') + 1)
+        return s:byte == -1 ? 0 : s:byte - 1
+    endfunction
 '''
 hook_source = '''
 lua << EOF

@@ -106,15 +106,8 @@ augroup CustomCommand
 
     " highlight yank
     autocmd TextYankPost * lua require'vim.highlight'.on_yank {higroup='MatchParen', timeout=400}
-
-    " Execute arbitrary commands without arguments
-    autocmd VimEnter * if @% == '' && s:GetBufByte() == 0 | Telescope find_files | endif
 augroup end
 
-function! s:GetBufByte()
-    let s:byte = line2byte(line('$') + 1)
-    return s:byte == -1 ? 0 : s:byte - 1
-endfunction
 
 " ----------------------------------------
 "  Command
