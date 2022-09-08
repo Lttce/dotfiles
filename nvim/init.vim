@@ -126,9 +126,6 @@ nnoremap q: <NOP>
 " Disable recoding
 nnoremap q <NOP>
 
-" Open a termial with ':T'
-command T split | resize 5 | terminal
-
 " don't show [Process exited 0]
 autocmd TermClose * call feedkeys('i')
 
@@ -138,6 +135,4 @@ autocmd TermClose * call feedkeys('i')
 
 set ignorecase
 set smartcase
-
-nnoremap <silent> <F1> <cmd>noh<CR>
 
