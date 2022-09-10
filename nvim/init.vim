@@ -69,7 +69,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-set smartindent
+set autoindent
+set shiftround
 
 set list
 
@@ -83,8 +84,6 @@ set hidden
 set nowrap
 
 inoremap jk <ESC>
-
-inoremap <C-l> <RIGHT>
 
 " Copy all chars from current buffer
 noremap Y <cmd>%y<CR>
@@ -119,12 +118,6 @@ augroup end
 
 " Exit inset mode when using the terminal
 tnoremap <ESC> <C-\><C-n>
-
-" Disable commands history
-nnoremap q: <NOP>
-
-" Disable recoding
-nnoremap q <NOP>
 
 " don't show [Process exited 0]
 autocmd TermClose * call feedkeys('i')
