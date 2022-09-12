@@ -83,10 +83,21 @@ set hidden
 
 set nowrap
 
+if has('persistent_undo')
+    if !filewritable(expand('~/.vim/undo'))
+        call mkdir($HOME.'/.vim/undo', 'p')
+    endif
+    set undodir=~/.vim/undo
+    set undofile
+endif
+
 inoremap jk <ESC>
 
 " Copy all chars from current buffer
 noremap Y <cmd>%y<CR>
+
+" Disable recoding
+nnoremap q <NOP>
 
 nnoremap x "_x
 vnoremap x "_x

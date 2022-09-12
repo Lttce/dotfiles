@@ -48,6 +48,7 @@ hook_source = '''
 # =================================================
 [[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
+rev = 'fab7a3f86cff3935119bb847d7815be718d7f7b0'
 on_event = 'BufRead'
 depends = 'plenary.nvim'
 hook_source = '''

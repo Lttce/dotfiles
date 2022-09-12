@@ -22,7 +22,7 @@ set autoread
 set hidden
 
 set autoindent
-set smartindent
+set shiftround
 
 set smarttab
 set expandtab
@@ -67,12 +67,9 @@ set shortmess-=S " Show match counts
 
 " General
 
-set mouse=a
 set belloff=all
 
 set clipboard=unnamed,unnamedplus
-
-set shellslash
 
 " Save last cursor position
 autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
