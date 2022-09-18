@@ -1,18 +1,22 @@
 " vim .vimrc
 
+if &compatible
+  set nocompatible
+endif
+
 language C
-
-set encoding=utf-8
-set fileencoding=utf-8
-
-set nocompatible
-set nobackup
-set noswapfile
 
 syntax enable
 filetype indent plugin on
 
-colorscheme slate
+set encoding=utf-8
+set fileencoding=utf-8
+
+set nobackup
+set noswapfile
+
+au ColorScheme * highlight EndOfBuffer None
+au ColorScheme * highlight NonText None
 
 " Edit
 
@@ -22,6 +26,7 @@ set autoread
 set hidden
 
 set autoindent
+set smartindent
 set shiftround
 
 set smarttab
@@ -31,6 +36,7 @@ set tabstop=4
 
 set splitbelow
 set splitright
+set nowrap
 
 set list
 set listchars=tab:>\ ,trail:-
@@ -42,7 +48,7 @@ inoremap jk <ESC>
 nnoremap x "_x
 vnoremap x "_x
 
-nmap q <NOP>
+nnoremap q <NOP>
 
 " Statusline
 
@@ -65,9 +71,18 @@ set ignorecase
 
 set shortmess-=S " Show match counts
 
+" Completion
+
+set completeopt=menu,menuone,noselect
+
+set complete-=t
+set complete-=i
+
 " General
 
 set belloff=all
+
+set ttyfast
 
 set clipboard=unnamed,unnamedplus
 
