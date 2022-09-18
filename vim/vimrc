@@ -89,6 +89,7 @@ set clipboard=unnamed,unnamedplus
 " Save last cursor position
 au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
+" disable default vim plugins
 let g:did_menu_trans            = 1
 let g:did_install_default_menus = 1
 let g:skip_loading_mswin        = 1
@@ -104,4 +105,9 @@ let g:loaded_tarPlugin          = 1
 let g:loaded_2html_plugin       = 1
 let g:loaded_tutor_mode_plugin  = 1
 let g:loaded_zipPlugin          = 1
+
+" use 24bit colors in tmux
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
