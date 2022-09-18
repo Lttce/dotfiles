@@ -8,16 +8,16 @@
 "  Load plugins
 " ----------------------------------------
 
-if !isdirectory(expand('~/.cache/dein'))
-    let s:url = 'https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh'
-    let s:dir = '~/.cache/dein'
-    call system('curl '.s:url.' | bash -s -- '.s:dir)
+let s:plguin_dir = expand('~/.cache/dein')
+
+if !isdirectory(s:plguin_dir.'/repos/github.com/Shougo/dein.vim')
+    call system('git clone https://github.com/Shougo/dein.vim.git '. s:plguin_dir .'/repos/github.com/Shougo/dein.vim')
 endif
 
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+execute 'set runtimepath+='. s:plguin_dir .'/repos/github.com/Shougo/dein.vim'
 
-if dein#min#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
+if dein#min#load_state(s:plguin_dir)
+    call dein#begin(s:plguin_dir)
         call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
         call dein#load_toml('~/dotfiles/nvim/dein_lazy.toml', { 'lazy': 1 })
     call dein#end()
