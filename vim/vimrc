@@ -78,6 +78,10 @@ set completeopt=menu,menuone,noselect
 set complete-=t
 set complete-=i
 
+" Fold
+
+set foldmethod=marker
+
 " General
 
 set belloff=all

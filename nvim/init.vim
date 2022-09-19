@@ -9,12 +9,13 @@
 " ----------------------------------------
 
 let s:plguin_dir = expand('~/.cache/dein')
+let s:dein_dir = s:plguin_dir.'/repos/github.com/Shougo/dein.vim'
 
-if !isdirectory(s:plguin_dir.'/repos/github.com/Shougo/dein.vim')
-    call system('git clone https://github.com/Shougo/dein.vim.git '. s:plguin_dir .'/repos/github.com/Shougo/dein.vim')
+if !isdirectory(s:dein_dir)
+    execute 'git clone https://github.com/Shougo/dein.vim.git '.s:dein_dir
 endif
 
-execute 'set runtimepath+='. s:plguin_dir .'/repos/github.com/Shougo/dein.vim'
+execute 'set runtimepath+='.s:dein_dir
 
 if dein#min#load_state(s:plguin_dir)
     call dein#begin(s:plguin_dir)
@@ -69,6 +70,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+set smartindent
 set autoindent
 set shiftround
 
@@ -76,8 +78,6 @@ set list
 
 set splitbelow
 set splitright
-
-set scrolloff=999
 
 set hidden
 
@@ -92,6 +92,7 @@ if has('persistent_undo')
 endif
 
 inoremap jk <ESC>
+inoremap <C-l> <C-o>a
 
 " Copy all chars from current buffer
 noremap Y <cmd>%y<CR>

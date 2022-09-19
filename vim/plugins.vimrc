@@ -3,13 +3,7 @@ if &compatible
 endif
 
 " automatic installation of vim-plug
-if has('win32')
-    let s:data_dir = expand('~/vimfiles')
-endif
-
-if has('linux')
-    let s:data_dir = expand('~/.vim')
-endif
+let s:data_dir = has('win32') ? expand('~/vimfiles') : expand('~/.vim')
 
 if empty(glob(s:data_dir.'/autoload/plug.vim'))
     silent exe '!curl -fLo '.s:data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
