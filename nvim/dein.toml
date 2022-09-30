@@ -6,9 +6,16 @@
 
 # =================================================
 [[plugins]]
-repo = 'Shougo/dein.vim'
+repo = 'sainnhe/edge'
 hook_add = '''
-    let g:dein#auto_recache = !has('win32')
+    colorscheme edge
+'''
+hook_source = '''
+    let g:edge_style = 'aura'
+    let g:edge_better_performance = 1
+    let g:edge_transparent_background = 0
+    let g:edge_disable_italic_comment = 1
+    let g:edge_enable_italic = 0
 '''
 
 # =================================================
@@ -44,3 +51,4 @@ hook_add = '''
 [[plugins]]
 repo = 'itchyny/vim-gitbranch'
 on_func = 'gitbranch#name()'
+

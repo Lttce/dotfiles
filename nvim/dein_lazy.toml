@@ -6,27 +6,10 @@
 
 # =================================================
 [[plugins]]
-repo = 'sainnhe/edge'
-on_event = 'ColorSchemePre'
-hook_source = '''
-    let g:edge_style = 'aura'
-    let g:edge_better_performance = 1
-    let g:edge_transparent_background = 0
-    let g:edge_disable_italic_comment = 1
-    let g:edge_enable_italic = 0
-'''
-
-[[plugins]]
-repo = 'sainnhe/everforest'
-on_event = 'ColorSchemePre'
-hook_source = '''
-    let g:everforest_background = 'hard'
-    let g:everforest_better_performance = 1
-'''
-
-# =================================================
-[[plugins]]
 repo = 'neovim/nvim-lspconfig'
+hook_source = '''
+    set signcolumn=yes
+'''
 
 [[plugins]]
 repo = 'williamboman/mason.nvim'
@@ -232,11 +215,6 @@ hook_source = '''
     augroup end
 '''
 
-# =================================================
-[[plugins]]
-repo = 'folke/trouble.nvim'
-on_cmd = 'TroubleToggle'
-depends = ['nvim-lspconfig', 'nvim-web-devicons']
 
 # =================================================
 [[plugins]]

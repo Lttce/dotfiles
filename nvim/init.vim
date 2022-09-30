@@ -1,143 +1,134 @@
-" ===========================================================================
+" ==========================================================================
 "
 "  Neovim init.vim
 "
 " ===========================================================================
 
 " ----------------------------------------
-"  Load plugins
+"  general
 " ----------------------------------------
-
-let s:plguin_dir = expand('~/.cache/dein')
-let s:dein_dir = s:plguin_dir.'/repos/github.com/Shougo/dein.vim'
-
-if !isdirectory(s:dein_dir)
-    execute 'git clone https://github.com/Shougo/dein.vim.git '.s:dein_dir
-endif
-
-execute 'set runtimepath+='.s:dein_dir
-
-if dein#min#load_state(s:plguin_dir)
-    call dein#begin(s:plguin_dir)
-        call dein#load_toml('~/dotfiles/nvim/dein.toml'     , { 'lazy': 0 })
-        call dein#load_toml('~/dotfiles/nvim/dein_lazy.toml', { 'lazy': 1 })
-    call dein#end()
-    call dein#save_state()
-endif
-
-if dein#check_install()
-    call dein#install()
-endif
-
-" Disable the runtime plugins
-source ~/dotfiles/nvim/plugins/runtime.vim
-
-" If set, startup time will be faster
-source ~/dotfiles/nvim/plugins/clipboard.vim
-
-" ----------------------------------------
-"  General
-" ----------------------------------------
-
-set nobackup
-set noswapfile
-
-set clipboard+=unnamedplus
 
 syntax enable
 filetype plugin indent on
 
-" ----------------------------------------
-" Color
-" ----------------------------------------
+set undofile
+set nobackup
+set noswapfile
 
-augroup CustomColorscheme
-    autocmd ColorScheme * highlight SignColumn None
-augroup end
+" ----------------------------------------
+" color
+" ----------------------------------------
 
 set termguicolors
 
-colorscheme edge
+autocmd ColorScheme * highlight SignColumn guibg=None
+autocmd ColorScheme * highlight NonText    guibg=None
+
+colorscheme evening
 
 " ----------------------------------------
-"  Edit
+" edit
 " ----------------------------------------
 
 set number
-set signcolumn=yes
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
-
-set smartindent
-set autoindent
-set shiftround
 
 set list
+
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set shiftround
 
 set splitbelow
 set splitright
 
-set hidden
-
 set nowrap
 
-if has('persistent_undo')
-    if !filewritable(expand('~/.vim/undo'))
-        call mkdir($HOME.'/.vim/undo', 'p')
-    endif
-    set undodir=~/.vim/undo
-    set undofile
-endif
-
-inoremap jk <ESC>
+inoremap jk <esc>
 inoremap <C-l> <C-o>a
 
-" Copy all chars from current buffer
-noremap Y <cmd>%y<CR>
+nnoremap q <nop>
 
-" Disable recoding
-nnoremap q <NOP>
+" copy all current buffer
+nnoremap Y <cmd>%y<cr>
 
 nnoremap x "_x
 vnoremap x "_x
 
-augroup CustomFileType
-    autocmd FileType make setlocal noexpandtab
-    autocmd FileType go setlocal noexpandtab
-    autocmd FileType gitcommit setlocal spell
-    autocmd FileType markdown setlocal spell
-    autocmd FileType typescriptreact setlocal shiftwidth=2
-augroup end
+" save last cursor position
+autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-augroup CustomCommand
-    " Save last cursor position
-    autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
-    " highlight yank
-    autocmd TextYankPost * lua require'vim.highlight'.on_yank {higroup='MatchParen', timeout=400}
-augroup end
-
+" highlight yank
+autocmd TextYankPost * lua require('vim.highlight').on_yank { higroup='MatchParen', timeout=400 }
 
 " ----------------------------------------
-"  Command
+" terminal
 " ----------------------------------------
 
-augroup CustomTerminal
-    autocmd TermOpen * startinsert
-augroup end
+tnoremap <esc> <C-\><C-n>
 
-" Exit inset mode when using the terminal
-tnoremap <ESC> <C-\><C-n>
+autocmd TermOpen * startinsert
 
 " don't show [Process exited 0]
 autocmd TermClose * call feedkeys('i')
 
 " ----------------------------------------
-"  Search
+" search
 " ----------------------------------------
 
 set ignorecase
 set smartcase
+
+" ----------------------------------------
+" completion
+" ----------------------------------------
+
+set completeopt=menu,menuone,preview,noselect
+
+" ----------------------------------------
+" clipboard
+" ----------------------------------------
+
+if has('wsl') || has('win32')
+    let g:clipboard = {
+        \   'name': 'win32yank',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i',
+        \      '*': 'win32yank.exe -i',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o',
+        \      '*': 'win32yank.exe -o',
+        \   },
+        \   'cache_enabled': 1,
+        \ }
+endif
+
+" ----------------------------------------
+" runtime
+" ----------------------------------------
+
+" disable builtin plugins
+let g:did_menu_trans            = 1
+let g:did_install_default_menus = 1
+let g:skip_loading_mswin        = 1
+let g:did_install_syntax_menu   = 1
+
+let g:loaded_gzip               = 1
+let g:loaded_man                = 1
+let g:loaded_matchit            = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_shada_plugin       = 1
+let g:loaded_spellfile_plugin   = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_zipPlugin          = 1
+
+let g:loaded_ruby_provider      = 0
+let g:loaded_perl_provider      = 0
+let g:loaded_python_provider    = 0
+let g:loaded_python3_provider   = 0
+let g:loaded_pythonx_provider   = 0
+let g:loaded_node_provider      = 0
 
