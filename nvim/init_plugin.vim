@@ -22,7 +22,7 @@ if dein#min#load_state(s:plguins_dir)
     call dein#begin(s:plguins_dir)
         call dein#add(s:dein_dir, {
                     \ 'if': 'v:false',
-                    \ 'hook_add':"
+                    \ 'hook_add': "
                     \      let g:dein#auto_recache = !has('win32')
                     \ "})
         call dein#load_toml(s:toml_dir.'dein.toml'     , { 'lazy': 0 })
