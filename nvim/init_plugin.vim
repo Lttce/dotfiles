@@ -38,4 +38,3 @@ endif
 syntax enable
 filetype plugin indent on
 
-let g:dein#auto_recache = !has('win32')
