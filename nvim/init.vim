@@ -90,19 +90,21 @@ set completeopt=menu,menuone,preview,noselect
 " clipboard
 " ----------------------------------------
 
-if has('wsl') || has('win32')
-    let g:clipboard = {
-        \   'name': 'win32yank',
-        \   'copy': {
-        \      '+': 'win32yank.exe -i',
-        \      '*': 'win32yank.exe -i',
-        \    },
-        \   'paste': {
-        \      '+': 'win32yank.exe -o',
-        \      '*': 'win32yank.exe -o',
-        \   },
-        \   'cache_enabled': 1,
-        \ }
+if executable('win32yank.exe')
+    if has('wsl') || has('win32')
+        let g:clipboard = {
+                    \   'name': 'win32yank',
+                    \   'copy': {
+                    \      '+': 'win32yank.exe -i',
+                    \      '*': 'win32yank.exe -i',
+                    \    },
+                    \   'paste': {
+                    \      '+': 'win32yank.exe -o',
+                    \      '*': 'win32yank.exe -o',
+                    \   },
+                    \   'cache_enabled': 1,
+                    \ }
+    endif
 endif
 
 " ----------------------------------------
