@@ -21,8 +21,9 @@ set noswapfile
 
 set termguicolors
 
-autocmd ColorScheme * highlight SignColumn guibg=None
-autocmd ColorScheme * highlight NonText    guibg=None
+au ColorScheme * hi SignColumn  guibg=None
+au ColorScheme * hi NonText     guibg=None
+au ColorScheme * hi EndOfBuffer guibg=None
 
 colorscheme evening
 
@@ -39,7 +40,7 @@ set expandtab
 set shiftwidth=4
 set shiftround
 
-set splitbelow
+" set splitbelow
 set splitright
 
 set nowrap
@@ -56,10 +57,10 @@ nnoremap x "_x
 vnoremap x "_x
 
 " save last cursor position
-autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " highlight yank
-autocmd TextYankPost * lua require('vim.highlight').on_yank { higroup='MatchParen', timeout=400 }
+aut TextYankPost * lua require('vim.highlight').on_yank { higroup='MatchParen', timeout=400 }
 
 " ----------------------------------------
 " terminal
@@ -67,10 +68,10 @@ autocmd TextYankPost * lua require('vim.highlight').on_yank { higroup='MatchPare
 
 tnoremap <esc> <C-\><C-n>
 
-autocmd TermOpen * startinsert
+au TermOpen * startinsert
 
 " don't show [Process exited 0]
-autocmd TermClose * call feedkeys('i')
+au TermClose * call feedkeys('i')
 
 " ----------------------------------------
 " search
