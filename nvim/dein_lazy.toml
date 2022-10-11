@@ -38,11 +38,16 @@ hook_source = '''
 lua << EOF
     local null_ls = require('null-ls')
     local sources = {
+        -- Docker
         null_ls.builtins.diagnostics.hadolint,
-        null_ls.builtins.diagnostics.mypy,
 
+        -- Python
+        null_ls.builtins.diagnostics.mypy,
         null_ls.builtins.formatting.isort,
         null_ls.builtins.formatting.black,
+
+        -- Rust
+        null_ls.builtins.formatting.rustfmt,
     }
 
     null_ls.setup({ sources = sources })
@@ -83,14 +88,6 @@ hook_source = '''
     smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
 '''
 
-[[plugins]]
-repo = 'hrsh7th/cmp-nvim-lsp-document-symbol'
-on_source = 'nvim-cmp'
-
-[[plugins]]
-repo = 'hrsh7th/cmp-nvim-lsp-signature-help'
-on_source = 'nvim-cmp'
-
 # =================================================
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
@@ -98,21 +95,22 @@ on_cmd = 'Telescope'
 depends = ['plenary.nvim', 'nvim-web-devicons']
 hook_add = '''
     nnoremap <silent> <C-p> <cmd>Telescope find_files<CR>
-    nnoremap <silent> <C-k> <cmd>Telescope buffers<CR>
 '''
 hook_source = '''
 lua << EOF
-    require('telescope').setup({
-        defaults = {
-            mappings = {
-                i = {
-                    ['<ESC>'] = require('telescope.actions').close,
-                    ['<C-j>'] = require('telescope.actions').move_selection_next,
-                    ['<C-k>'] = require('telescope.actions').move_selection_previous,
-                }
+
+require('telescope').setup({
+    defaults = {
+        mappings = {
+            i = {
+                ['<ESC>'] = require('telescope.actions').close,
+                ['<C-j>'] = require('telescope.actions').move_selection_next,
+                ['<C-k>'] = require('telescope.actions').move_selection_previous,
             }
         }
-    })
+    }
+})
+
 EOF
 '''
 
@@ -150,13 +148,16 @@ repo = 'lewis6991/gitsigns.nvim'
 on_if = '!empty(gitbranch#name())'
 hook_source = '''
 lua << EOF
-    require('gitsigns').setup()
+
+require('gitsigns').setup()
+
 EOF
 '''
 
 # =================================================
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+if = 'v:false'
 on_cmd = 'QuickRun'
 hook_source = '''
     let g:quickrun_config = {}
@@ -169,26 +170,29 @@ hook_source = '''
 # =================================================
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+if = 'v:false'
 on_event = 'BufEnter'
 hook_post_update = 'TSUpdate'
 hook_source = '''
 lua << EOF
-    require('nvim-treesitter.configs').setup {
-        highlight = { 
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        }
+
+require('nvim-treesitter.configs').setup {
+    highlight = { 
+        enable = true,
     }
+}
+
 EOF
 '''
 
 # =================================================
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
-on_cmd = ['IndentGuidesToggle']
+if = 'v:false'
+on_cmd = 'IndentGuidesToggle'
 hook_add = '''
-    autocmd ColorScheme * highlight IndentGuidesOdd  ctermbg=237
-    autocmd ColorScheme * highlight IndentGuidesEven ctermbg=236
+    au ColorScheme * hi IndentGuidesOdd  ctermbg=237
+    au ColorScheme * hi IndentGuidesEven ctermbg=236
 '''
 hook_source = '''
     let g:indent_guides_enable_on_vim_startup = 0
@@ -201,18 +205,11 @@ hook_source = '''
 repo = 'voldikss/vim-floaterm'
 on_cmd = 'FloatermToggle'
 hook_add = '''
-    nnoremap <space>t <cmd>FloatermToggle<CR>
-    nnoremap T <cmd>FloatermNew tig<CR>
+    nnoremap T <cmd>FloatermToggle<CR>
 '''
 hook_source = '''
-    let g:floaterm_width = 0.8
-    let g:floaterm_height = 0.9
-    let g:floaterm_opener = 'tabe'
-    let g:floaterm_borderchars = '─│─│╭╮╯╰'
-
-    augroup CustomFloaterm
-        autocmd Filetype floaterm nnoremap <buffer> <ESC> <cmd>FloatermToggle<CR>
-    augroup end
+    autocmd TermClose * call feedkeys('')
+    autocmd Filetype floaterm nnoremap <buffer> <ESC> <cmd>FloatermToggle<CR>
 '''
 
 
@@ -227,16 +224,23 @@ hook_add = '''
 '''
 hook_source = '''
 lua << EOF
-    require('vfiler/config').setup {
-        options = {
-            columns = 'indent,devicons,name,mode,size,time',
-        },
-    }
 
-    require('vfiler').start()
+require('vfiler/config').setup {
+    options = {
+        columns = 'indent,devicons,name,mode,size,time',
+    },
+}
+
+require('vfiler').start()
+
 EOF
 '''
 
 [[plugins]]
 repo = 'obaland/vfiler-column-devicons'
+
+# =================================================
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
 

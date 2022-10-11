@@ -21,18 +21,10 @@ cmp.setup({
         { name = 'vsnip' },
         },{
         { name = 'buffer' },
-        },{
-        { name = 'nvim_lsp_signature_help' },
     }),
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
-    },
-})
-
-cmp.setup.cmdline('/', {
-    sources = {
-        { name = 'nvim_lsp_document_symbol' },
     },
 })
 
