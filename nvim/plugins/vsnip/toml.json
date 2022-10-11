@@ -9,14 +9,16 @@
     "hook_add": {
         "prefix": "hook_add",
         "body": [
-            "hook_add = '''$1",
+            "hook_add = '''",
+            "$1",
             "'''"
         ]
     },
     "hook_source": {
         "prefix": "hook_source",
         "body": [
-            "hook_source = '''$1",
+            "hook_source = '''",
+            "$1",
             "'''"
         ]
     },
