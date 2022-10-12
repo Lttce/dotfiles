@@ -40,7 +40,6 @@ set expandtab
 set shiftwidth=4
 set shiftround
 
-" set splitbelow
 set splitright
 
 set nowrap
@@ -49,9 +48,6 @@ inoremap jk <esc>
 inoremap <C-l> <C-o>a
 
 nnoremap q <nop>
-
-" copy all current buffer
-nnoremap Y <cmd>%y<cr>
 
 nnoremap x "_x
 vnoremap x "_x
@@ -87,24 +83,29 @@ set smartcase
 set completeopt=menu,menuone,preview,noselect
 
 " ----------------------------------------
+" mouse
+" ----------------------------------------
+
+" disable mouse
+set mouse=
+
+" ----------------------------------------
 " clipboard
 " ----------------------------------------
 
 if executable('win32yank.exe')
-    if has('wsl') || has('win32')
-        let g:clipboard = {
-                    \   'name': 'win32yank',
-                    \   'copy': {
-                    \      '+': 'win32yank.exe -i',
-                    \      '*': 'win32yank.exe -i',
-                    \    },
-                    \   'paste': {
-                    \      '+': 'win32yank.exe -o',
-                    \      '*': 'win32yank.exe -o',
-                    \   },
-                    \   'cache_enabled': 1,
-                    \ }
-    endif
+    let g:clipboard = {
+        \   'name': 'win32yank',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i',
+        \      '*': 'win32yank.exe -i',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o',
+        \      '*': 'win32yank.exe -o',
+        \   },
+        \   'cache_enabled': 1,
+        \ }
 endif
 
 " ----------------------------------------
