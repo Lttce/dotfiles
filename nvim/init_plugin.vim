@@ -21,7 +21,6 @@ execute 'set runtimepath+='.s:dein_dir
 if dein#min#load_state(s:plguins_dir)
     call dein#begin(s:plguins_dir)
         call dein#add(s:dein_dir, {
-                    \ 'if': 'v:false',
                     \ 'hook_add': "
                     \      let g:dein#auto_recache = !has('win32')
                     \ "})
