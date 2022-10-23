@@ -49,9 +49,9 @@ require('mason-lspconfig').setup_handlers {
             end
 
             local buf_opts = { noremap = true, silent = true }
-            buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', buf_opts)
+            buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', buf_opts)
             buf_set_keymap('n', '<space>d', '<cmd>lua vim.diagnostic.open_float()<CR>', buf_opts)
-            buf_set_keymap('n', '<space>r', '<cmd>TroubleToggle lsp_references<CR>', buf_opts)
+            buf_set_keymap('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>', buf_opts)
             buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', buf_opts)
             buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', buf_opts)
         end
