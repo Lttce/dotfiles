@@ -10,10 +10,9 @@ if empty(glob(s:data_dir.'/autoload/plug.vim'))
     au VimEnter * PlugInstall --sync | exe 'qa'
 endif
 
-" plugins
 call plug#begin()
     " colorscheme
-    Plug 'arcticicestudio/nord-vim'
+    Plug 'nanotech/jellybeans.vim'
     " statusline
     Plug 'itchyny/lightline.vim'
     " edit support
@@ -26,15 +25,8 @@ call plug#end()
 " lightline
 set nosmd
 let g:lightline = {}
-let g:lightline.colorscheme = 'nord'
-
-" ctrlp
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_types = ['fil', 'buf']
+let g:lightline.colorscheme = 'jellybeans'
 
 " colorscheme
-colorscheme nord
-
-" base vimrc
-source ~/dotfiles/vim/vimrc
+colorscheme jellybeans
 
