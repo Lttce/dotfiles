@@ -60,7 +60,6 @@ set ruler
 " Command
 
 set wildmenu
-set wildoptions=pum
 
 set showcmd
 
