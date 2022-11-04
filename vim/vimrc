@@ -18,6 +18,8 @@ set noswapfile
 au ColorScheme * hi EndOfBuffer None
 au ColorScheme * hi NonText None
 
+colorscheme evening
+
 " Edit
 
 set number
