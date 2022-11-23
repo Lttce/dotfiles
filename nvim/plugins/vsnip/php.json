@@ -1,0 +1,31 @@
+{
+    "html": {
+        "prefix": "html",
+        "body": [
+            "<!doctype html>",
+            "<html>",
+            "",
+            "<head>",
+            "<meta charset=utf-8>",
+            "<title></title>",
+            "</head>",
+            "",
+            "<body>",
+            "</body>",
+            "",
+            "</html>"
+        ]
+    },
+    "declare": {
+        "prefix": "declare",
+        "body": "declare(strict_types=1);"
+    },
+    "php": {
+        "prefix": "php",
+        "body": "<?php $1 ?>"
+    },
+    "div": {
+        "prefix": "div",
+        "body": "<div>$1</div>"
+    }
+}
