@@ -1,0 +1,10 @@
+{
+    "default": {
+        "prefix": "default",
+        "body": [
+            "default:",
+            "",
+            ".PHONY: default"
+        ]
+    }
+}
