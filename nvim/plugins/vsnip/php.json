@@ -11,6 +11,9 @@
             "</head>",
             "",
             "<body>",
+            "<header></header>",
+            "<main></main>",
+            "<footer></footer>",
             "</body>",
             "",
             "</html>"
@@ -27,5 +30,17 @@
     "div": {
         "prefix": "div",
         "body": "<div>$1</div>"
+    },
+    "var_dump": {
+        "prefix": "vardump",
+        "body": [
+            "echo \"<pre>\";",
+            "var_dump($1);",
+            "echo \"</pre>\";"
+        ]
+    },
+    "function": {
+        "prefix": "function",
+        "body": "(function ():$1 {$2})();"
     }
 }
