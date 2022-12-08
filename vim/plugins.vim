@@ -27,9 +27,6 @@ set nosmd
 let g:lightline = {}
 let g:lightline.colorscheme = 'jellybeans'
 
-" ctrlp
-let g:ctrlp_working_path_mode = 'c'
-
 " colorscheme
 colorscheme jellybeans
 
