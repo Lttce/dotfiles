@@ -12,6 +12,7 @@ neovim:
 
 starship:
 	ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+	echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 install_starship:
 	curl -sS https://starship.rs/install.sh | sh
