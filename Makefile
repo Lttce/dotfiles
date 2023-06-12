@@ -17,6 +17,15 @@ starship:
 install_starship:
 	curl -sS https://starship.rs/install.sh | sh
 
+install_nvim:
+	@if which nvim >/dev/null; then \
+		echo "nvim is installed."; \
+		exit 1; \
+	fi
+	sudo curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o /usr/local/bin/nvim
+	sudo chmod +x /usr/local/bin/nvim
+
+
 
 .PHONY: default tmux vim neovim starship
-.PHONY: install_starship
+.PHONY: install_starship install_nvim
