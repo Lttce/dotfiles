@@ -28,17 +28,11 @@ on_event = 'InsertEnter'
 
 # =================================================
 [[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-depends = 'plenary.nvim'
-rev = '0.1.0'
-on_cmd = 'Telescope'
+repo = 'ctrlpvim/ctrlp.vim'
+on_cmd = 'CtrlP'
 hook_add = '''
-    nnoremap <C-p> <cmd>Telescope find_files<cr>
+    nnoremap <c-p> <cmd>CtrlP<cr>
 '''
-
-[[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-lazy = 1
 
 # =================================================
 [[plugins]]
