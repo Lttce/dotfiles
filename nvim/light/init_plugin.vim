@@ -11,8 +11,9 @@ execute 'set runtimepath+='.s:dein_dir
 if dein#min#load_state(s:plguins_dir)
     call dein#begin(s:plguins_dir)
         call dein#add(s:dein_dir, {
+                    \ 'rev': '3.*',
                     \ 'hook_add': "
-                    \      let g:dein#auto_recache = !has('win32')
+                    \      let g:dein#auto_recache = v:false
                     \ "})
         call dein#load_toml(s:toml_dir.'dein.toml')
     call dein#end()
