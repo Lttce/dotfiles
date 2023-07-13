@@ -33,6 +33,10 @@ on_cmd = 'CtrlP'
 hook_add = '''
     nnoremap <c-p> <cmd>CtrlP<cr>
 '''
+hook_source = '''
+    let g:ctrlp_max_depth = 10
+    let g:ctrlp_max_files = 5000
+'''
 
 # =================================================
 [[plugins]]
