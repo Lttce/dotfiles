@@ -16,6 +16,9 @@ starship:
 	ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 	echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
+less:
+	ln -s ~/dotfiles/less/.lesskey ~/.lesskey
+
 install_starship:
 	curl -sS https://starship.rs/install.sh | sh
 
@@ -29,5 +32,5 @@ install_nvim:
 
 
 
-.PHONY: default tmux vim neovim starship
+.PHONY: default tmux vim neovim starship less
 .PHONY: install_starship install_nvim
