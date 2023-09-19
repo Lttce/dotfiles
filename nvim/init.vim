@@ -93,6 +93,8 @@ set mouse=
 " clipboard
 " ----------------------------------------
 
+set clipboard=unnamed,unnamedplus
+
 if executable('win32yank.exe')
     let g:clipboard = {
         \   'name': 'win32yank',
