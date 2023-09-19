@@ -28,6 +28,23 @@ on_event = 'InsertEnter'
 
 # =================================================
 [[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_event = 'InsertEnter'
+hook_source = '''
+    " Snip dir
+    let g:vsnip_snippet_dir = expand('~/dotfiles/nvim/plugins/vsnip')
+
+    " Expand or jump forward
+    imap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
+    smap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
+
+    " Jump backward
+    imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+    smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+'''
+
+# =================================================
+[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 on_cmd = 'CtrlP'
 hook_add = '''
