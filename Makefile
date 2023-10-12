@@ -12,6 +12,9 @@ neovim:
 	fi
 	echo "source ~/dotfiles/nvim/init.vim" >> ~/.config/nvim/init.vim
 
+neovim_plugin:
+	echo "source ~/dotfiles/nvim/light/init_plugin.vim" >> ~/.config/nvim/init.vim
+
 starship:
 	ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 	echo 'eval "$(starship init bash)"' >> ~/.bashrc
@@ -22,13 +25,16 @@ less:
 install_starship:
 	curl -sS https://starship.rs/install.sh | sh
 
-install_nvim:
+install_neovim:
 	@if which nvim >/dev/null; then \
 		echo "nvim is installed."; \
 		exit 1; \
 	fi
 	sudo curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o /usr/local/bin/nvim
 	sudo chmod +x /usr/local/bin/nvim
+
+uninstall_neovim:
+	sudo rm /usr/local/bin/nvim
 
 
 
