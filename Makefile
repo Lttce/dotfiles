@@ -46,6 +46,12 @@ install_packeges:
 		fzf \
 		libfuse2
 
+install_win32yank:
+	sudo curl -L https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip -o /usr/local/bin/win32yank.zip \
+		&& sudo unzip -o -d /usr/local/bin /usr/local/bin/win32yank.zip \
+		&& sudo rm /usr/local/bin/win32yank.zip /usr/local/bin/LICENSE /usr/local/bin/README.md \
+		&& sudo chmod +x /usr/local/bin/win32yank.exe
+
 
 .PHONY: default tmux vim neovim starship less
-.PHONY: install_starship install_nvim
+.PHONY: install_starship install_neovim install_packeges install_win32yank
