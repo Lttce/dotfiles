@@ -36,6 +36,15 @@ install_neovim:
 uninstall_neovim:
 	sudo rm /usr/local/bin/nvim
 
+install_packeges:
+	sudo apt install -y \
+		build-essential \
+		git \
+		curl \
+		tree \
+		tmux \
+		fzf \
+		libfuse2
 
 
 .PHONY: default tmux vim neovim starship less
