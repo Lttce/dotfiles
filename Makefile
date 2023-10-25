@@ -22,6 +22,9 @@ starship:
 less:
 	ln -s ~/dotfiles/less/.lesskey ~/.lesskey
 
+fzf:
+	echo "source /usr/share/doc/fzf/examples/key-bindings.bash" >> ~/.bashrc
+
 install_starship:
 	curl -sS https://starship.rs/install.sh | sh
 
