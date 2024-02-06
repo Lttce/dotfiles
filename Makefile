@@ -1,10 +1,19 @@
 default:
 
 tmux:
-	echo "source-file ~/dotfiles/tmux/.tmux.conf" >> ~/.tmux.conf
+	@if [ ! -d ~/.config/tmux ]; then \
+		mkdir -p ~/.config/tmux; \
+	fi
+	echo "source-file ~/dotfiles/tmux/tmux.conf" >> ~/.config/tmux/tmux.conf
 
 vim:
-	echo "source ~/dotfiles/vim/vimrc" >> ~/.vimrc
+	@if [ ! -d ~/.vim ]; then \
+		mkdir -p ~/.vim; \
+	fi
+	echo "source ~/dotfiles/vim/vimrc" >> ~/.vim/vimrc
+
+vim_plugin:
+	echo "source ~/dotfiles/vim/plugins.vim" >> ~/.vim/vimrc
 
 neovim:
 	@if [ ! -d ~/.config/nvim ]; then \
