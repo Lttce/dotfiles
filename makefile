@@ -29,12 +29,4 @@ update_neovim:
 	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz | sudo tar xz -C /opt
 	nvim --version | head -1
 
-install_win32yank:
-	sudo curl -L https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip -o /usr/local/bin/win32yank.zip \
-		&& sudo unzip -o -d /usr/local/bin /usr/local/bin/win32yank.zip \
-		&& sudo rm /usr/local/bin/win32yank.zip /usr/local/bin/LICENSE /usr/local/bin/README.md \
-		&& sudo chmod +x /usr/local/bin/win32yank.exe
-
-
-.PHONY: default tmux vim neovim less
-.PHONY: update_neovim install_win32yank
+.PHONY: default tmux vim neovim less update_neovim
