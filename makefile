@@ -24,9 +24,6 @@ neovim:
 less:
 	ln -s ~/dotfiles/less/.lesskey ~/.lesskey
 
-fzf:
-	echo "source /usr/share/doc/fzf/examples/key-bindings.bash" >> ~/.bashrc
-
 install_neovim:
 	@if which nvim >/dev/null; then \
 		echo "nvim is installed."; \
@@ -38,16 +35,6 @@ install_neovim:
 uninstall_neovim:
 	sudo rm /usr/local/bin/nvim
 
-install_packeges:
-	sudo apt install -y \
-		build-essential \
-		git \
-		curl \
-		tree \
-		tmux \
-		fzf \
-		libfuse2
-
 install_win32yank:
 	sudo curl -L https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip -o /usr/local/bin/win32yank.zip \
 		&& sudo unzip -o -d /usr/local/bin /usr/local/bin/win32yank.zip \
@@ -56,4 +43,4 @@ install_win32yank:
 
 
 .PHONY: default tmux vim neovim less
-.PHONY: install_neovim install_packeges install_win32yank
+.PHONY: install_neovim install_win32yank
