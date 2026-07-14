@@ -24,18 +24,11 @@ neovim:
 neovim_plugin:
 	echo "source ~/dotfiles/nvim/light/init_plugin.vim" >> ~/.config/nvim/init.vim
 
-starship:
-	ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
-	echo 'eval "$(starship init bash)"' >> ~/.bashrc
-
 less:
 	ln -s ~/dotfiles/less/.lesskey ~/.lesskey
 
 fzf:
 	echo "source /usr/share/doc/fzf/examples/key-bindings.bash" >> ~/.bashrc
-
-install_starship:
-	curl -sS https://starship.rs/install.sh | sh
 
 install_neovim:
 	@if which nvim >/dev/null; then \
@@ -65,5 +58,5 @@ install_win32yank:
 		&& sudo chmod +x /usr/local/bin/win32yank.exe
 
 
-.PHONY: default tmux vim neovim starship less
-.PHONY: install_starship install_neovim install_packeges install_win32yank
+.PHONY: default tmux vim neovim less
+.PHONY: install_neovim install_packeges install_win32yank
