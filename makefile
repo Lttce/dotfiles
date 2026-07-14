@@ -35,6 +35,11 @@ install_neovim:
 uninstall_neovim:
 	sudo rm /usr/local/bin/nvim
 
+update_neovim:
+	sudo rm -rf /opt/nvim-linux-x86_64
+	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz | sudo tar xz -C /opt
+	nvim --version | head -1
+
 install_win32yank:
 	sudo curl -L https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip -o /usr/local/bin/win32yank.zip \
 		&& sudo unzip -o -d /usr/local/bin /usr/local/bin/win32yank.zip \
@@ -43,4 +48,4 @@ install_win32yank:
 
 
 .PHONY: default tmux vim neovim less
-.PHONY: install_neovim install_win32yank
+.PHONY: install_neovim uninstall_neovim update_neovim install_win32yank
