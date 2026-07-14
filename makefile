@@ -19,10 +19,7 @@ neovim:
 	@if [ ! -d ~/.config/nvim ]; then \
 		mkdir -p ~/.config/nvim; \
 	fi
-	echo "source ~/dotfiles/nvim/init.vim" >> ~/.config/nvim/init.vim
-
-neovim_plugin:
-	echo "source ~/dotfiles/nvim/light/init_plugin.vim" >> ~/.config/nvim/init.vim
+	echo 'dofile(vim.fn.expand("~/dotfiles/nvim/init.lua"))' >> ~/.config/nvim/init.lua
 
 less:
 	ln -s ~/dotfiles/less/.lesskey ~/.lesskey
