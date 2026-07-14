@@ -24,17 +24,6 @@ neovim:
 less:
 	ln -s ~/dotfiles/less/.lesskey ~/.lesskey
 
-install_neovim:
-	@if which nvim >/dev/null; then \
-		echo "nvim is installed."; \
-		exit 1; \
-	fi
-	sudo curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o /usr/local/bin/nvim
-	sudo chmod +x /usr/local/bin/nvim
-
-uninstall_neovim:
-	sudo rm /usr/local/bin/nvim
-
 update_neovim:
 	sudo rm -rf /opt/nvim-linux-x86_64
 	curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz | sudo tar xz -C /opt
@@ -48,4 +37,4 @@ install_win32yank:
 
 
 .PHONY: default tmux vim neovim less
-.PHONY: install_neovim uninstall_neovim update_neovim install_win32yank
+.PHONY: update_neovim install_win32yank
