@@ -17,6 +17,8 @@
       "git push *": "ask",
       "ls *": "allow"
     },
+    "todowrite": "allow",
+    "todoread": "allow",
     "edit": "ask",
     "webfetch": "ask",
     "websearch": "ask"
